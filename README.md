@@ -23,7 +23,7 @@
 * /db/ 数据库初始化脚本
 * /lib/ 引用的第三方的dll (以前没用Nuget的原因)
 * /tests/ 单元测试
- 
+
 ## 参考资料
 * [Nhibernate](https://github.com/nhibernate/nhibernate-core)
 * [Fluent Nhibernate](https://github.com/jagregory/fluent-nhibernate)
