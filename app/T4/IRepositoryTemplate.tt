@@ -17,7 +17,7 @@ public class IRepositoryTemplate : CSharpTemplate
 //文件名称：I<#=_className #>Repository.cs 
 //模块名称：
 //模块编号：
-//作　　者：lhc 
+//作　　者：cotide 
 //创建时间：<#=DateTime.Now#>
 //功能说明：
 //----------------------------------------------------------------- 

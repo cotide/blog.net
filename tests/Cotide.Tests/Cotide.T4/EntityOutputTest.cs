@@ -4,7 +4,7 @@
 //文件名称：EntityOutputTest.cs
 //模块名称：
 //模块编号：
-//作　　者：lhc
+//作　　者：cotide
 //创建时间：2012/12/16 18:32:26 
 //功能说明：
 //-----------------------------------------------------------------
@@ -23,8 +23,7 @@ using System;
 using System.IO;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TextTemplating;
+using System.Text; 
 
 namespace Tests.Cotide.T4
 {

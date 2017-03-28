@@ -42,10 +42,6 @@
     </Validate>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\tests\Cotide.Tests\Cotide.Tests.csproj">
-      <Name>Cotide.Tests</Name>
-      <Project>{e58c32df-4d83-40b8-8bc1-82c669c3eb5b}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Cotide.ApplicationServices\Cotide.Tasks.csproj">
       <Name>Cotide.Tasks</Name>
       <Project>{56d6c9c1-f65f-4f31-bca6-a4dc53bd6e6e}</Project>
