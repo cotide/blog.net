@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "_DialogLayout";
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section Head{
+  @RenderSection("Head", false)
+    <style>
+        body {
+            padding-top: 0px;
+        }
+    </style>
+} 
+@section Content{
+    @RenderBody()
+}

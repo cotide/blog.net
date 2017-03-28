@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74545fb8-8d98-4c63-9113-50694f00667a}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>Design</Name>
+    <RootNamespace>Design</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="false" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\Design.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="LayerDiagram1.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="LayerDiagram1.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDiagram1.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\tests\Cotide.Tests\Cotide.Tests.csproj">
+      <Name>Cotide.Tests</Name>
+      <Project>{e58c32df-4d83-40b8-8bc1-82c669c3eb5b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.ApplicationServices\Cotide.Tasks.csproj">
+      <Name>Cotide.Tasks</Name>
+      <Project>{56d6c9c1-f65f-4f31-bca6-a4dc53bd6e6e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Core\Cotide.Domain.csproj">
+      <Name>Cotide.Domain</Name>
+      <Project>{15dcfe96-8133-44f2-a834-3394e836fd67}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Data\Cotide.Infrastructure.csproj">
+      <Name>Cotide.Infrastructure</Name>
+      <Project>{635e1119-fe18-4b41-b060-8438facf64b7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Framework\Cotide.Framework.csproj">
+      <Name>Cotide.Framework</Name>
+      <Project>{e63fcee6-1ae3-4450-abd1-ac62b402dfec}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Portal\Cotide.Portal.csproj">
+      <Name>Cotide.Portal</Name>
+      <Project>{aaac56e7-cd0f-4215-977a-9ec018f194c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.QueryServices\Cotide.QueryServices.csproj">
+      <Name>Cotide.QueryServices</Name>
+      <Project>{0b39d99a-c3c7-40d2-b9df-0bff17875184}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Web.Controllers\Cotide.Web.Controllers.csproj">
+      <Name>Cotide.Web.Controllers</Name>
+      <Project>{77bc30fc-8cae-4bc1-b22a-fdab77e5540d}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+@using Cotide.Web.Controllers.Blog.ViewModel.Article
+@model SaveMessageReplyViewModel
+<script type="text/javascript">
+    $(function() {
+        var id = "@Model.FormGuId";
+        $("#SaveMessageReplyFrom" + id).ajaxPostForm(function() {
+            var $form = $("#SaveMessageReplyFrom" + id);
+            var replyComment = $form.find("textarea[name='ReplyComment']"); 
+            if ($.trim(replyComment.val()) == "") {
+                cotide.dialog.showResultMsg('@("msgTip" + Model.FormGuId)', "请输入您的评论内容!", "info");
+                return false;
+            }
+            return true;
+        }, function() {
+            // 评论成功交互  
+            var loadUrl = "@Url.Action("ArticleComment", "Blog", new { @id = Model.ArticleId })";
+            $("#articleCommentPanl").load(loadUrl.urlstamp());
+        });
+    });
+</script>
+<div class="row"  commentItem="true"    style="display:none;padding-left:20px;">
+
+     @using (Html.BeginForm("SaveMessageReply", "Blog", FormMethod.Post,
+                           new { @id = "SaveMessageReplyFrom" + Model.FormGuId }))
+        { 
+            <p>
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.ArticleId) 
+                @Html.HiddenFor(x => x.ReplyMessageId)  
+                <span><em>评论内容</em></span>
+                <div id='@("msgTip" + Model.FormGuId)' >
+                </div>
+                @Html.TextAreaFor(x => x.ReplyComment,
+                    new
+                    {
+                        @rows = "5",
+                        @style =
+                            "border: 1px solid #C6C6C6;  resize: none; width: 95%;",
+                        @tabindex = "4",
+                        @placeholder = "请输入评论内容"
+                    }) 
+            </p>
+    <p>
+        <button type="submit" class="btn btn-primary">
+            <i class="icon-user"></i>评论</button>
+    </p>
+     } 
+ </div>

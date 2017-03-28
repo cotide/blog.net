@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+@using Cotide.Web.Controllers.Blog.ViewModel.Article
+@model SaveMessageViewModel
+
+@using (
+        Html.BeginForm("SaveMessage", "Blog", FormMethod.Post,
+                           new { @id = "SaveMessageFrom" }))
+{ 
+    <p>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.ArticleId)
+        <span>
+            <em>评论内容</em></span>
+        <div id="msgTip">
+        </div>
+        @Html.TextAreaFor(x => x.Comment, new
+        {
+            @rows = "5",
+            @style = "width: 98%;",
+            @tabindex = "4",
+            @placeholder = "请输入评论的内容"
+        })
+    </p>
+    <p>
+        <button type="submit" class="btn btn-primary">
+            <i class="icon-user"></i>评论</button>
+    </p>
+    <div class="fix">
+    </div>
+}
+<script type="text/javascript">
+    $(function () { 
+        $("#SaveMessageFrom").ajaxPostForm(function() {
+            // 评论前验证
+            if ($.trim($("#Comment").val()) == "") {  
+                cotide.dialog.showResultMsg("msgTip", "请输入您的评论内容!", "info");
+                return false;
+            }
+            return true;
+        }, function () {
+            // 评论成功
+            $("#Comment").val("");  
+            cotide.dialog.showResultMsg("msgTip", "评论成功!", "success");
+            $("#articleCommentPanl").ajaxLoadData("@Url.Action("ArticleComment", "Blog", new { @id = Model.ArticleId })");
+        },function () {
+            // 评论失败
+            cotide.dialog.showResultMsg("msgTip", "评论失败，请联系管理员!", "error");
+        });
+    })
+</script>

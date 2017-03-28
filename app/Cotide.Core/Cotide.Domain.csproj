@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15DCFE96-8133-44F2-A834-3394E836FD67}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cotide.Domain</RootNamespace>
+    <AssemblyName>Cotide.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\SharpArch.2.0.2\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Validator, Version=1.3.0.1001, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate3.0\NHibernate.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.NHibernate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Contracts\QueryServices\ILinkTypeQueryService.cs" />
+    <Compile Include="Contracts\Repositories\Base\IAdRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IArticleMessageRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IArticleRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IArticleTagRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IArticleTypeRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\ILinkRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\ILinkTypeRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IProjectRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IProjectTypeRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IUserRepository.cs" />
+    <Compile Include="Contracts\Repositories\Base\IUserTourLogRepository.cs" />
+    <Compile Include="Contracts\Repositories\OutPut.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OutPut.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dtos\LinkTypeDto.cs" />
+    <Compile Include="Entity\Other\Ad.cs" />
+    <Compile Include="Entity\Blog\Article.cs" />
+    <Compile Include="Entity\Blog\ArticleMessage.cs" />
+    <Compile Include="Entity\Blog\ArticleTag.cs" />
+    <Compile Include="Entity\Blog\ArticleType.cs" />
+    <Compile Include="Contracts\Commands\SystemImgFileCommand.cs" />
+    <Compile Include="Contracts\Commands\UserFileCommand.cs" />
+    <Compile Include="Contracts\QueryServices\IAdQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IArticleMessageQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IArticleQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IArticleTagQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IArticleTypeQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\ILinkQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IProjectQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IProjectTypeQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IUserQueryService.cs" />
+    <Compile Include="Contracts\QueryServices\IUserTourLogQueryService.cs" />
+    <Compile Include="Contracts\Repositories\Extension\IDbExProxyRepository.cs" />
+    <Compile Include="Contracts\Repositories\Extension\IDbExProxyRepositoryWithTypedId.cs" />
+    <Compile Include="Contracts\Repositories\Extension\IDbProxyRepository.cs" />
+    <Compile Include="Contracts\Repositories\Extension\IDbProxyRepositoryWithTypedId.cs" />
+    <Compile Include="Contracts\Repositories\IAggregateRoot.cs" />
+    <Compile Include="Contracts\Services\IIdentityService.cs" />
+    <Compile Include="Contracts\Task\IdentityUser.cs" />
+    <Compile Include="Contracts\Task\IUserFileTask.cs" />
+    <Compile Include="Contracts\Task\IUserTask.cs" />
+    <Compile Include="Contracts\Task\UserPrincipal .cs" />
+    <Compile Include="Dtos\AdDto.cs" />
+    <Compile Include="Dtos\ArticleDateDto.cs" />
+    <Compile Include="Dtos\ArticleDto.cs" />
+    <Compile Include="Dtos\ArticleMessage\ArticleMessageDto.cs" />
+    <Compile Include="Dtos\ArticleMessage\TagerUserArticleMessageDto.cs" />
+    <Compile Include="Dtos\ArticleReplyMessageDto.cs" />
+    <Compile Include="Dtos\ArticleTagDto.cs" />
+    <Compile Include="Dtos\ArticleTypeDto.cs" />
+    <Compile Include="Dtos\LinkDto.cs" />
+    <Compile Include="Dtos\ArticleMessage\UserArticleMessageDto.cs" />
+    <Compile Include="Dtos\ProjectDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dtos\ProjectTypeDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dtos\UserDto.cs" />
+    <Compile Include="Dtos\UserTourLogDto.cs" />
+    <Compile Include="Entity\Other\LinkType.cs" />
+    <Compile Include="Enum\ActivityOrderMoneyState.cs" />
+    <Compile Include="Enum\ActivityOrderState.cs" />
+    <Compile Include="Enum\ActivityState.cs" />
+    <Compile Include="Enum\AdminLevel.cs" />
+    <Compile Include="Enum\AdType.cs" />
+    <Compile Include="Enum\ProductAttrType.cs" />
+    <Compile Include="Enum\ProductOrderPayStatus.cs" />
+    <Compile Include="Enum\ProductOrderStatus.cs" />
+    <Compile Include="Enum\UserFileType.cs" />
+    <Compile Include="Enum\UserLoginRole.cs" />
+    <Compile Include="Enum\UserPower.cs" />
+    <Compile Include="Enum\UserRole.cs" />
+    <Compile Include="Enum\UserSex.cs" />
+    <Compile Include="Enum\UserState.cs" />
+    <Compile Include="Event\Article.cs" />
+    <Compile Include="Event\ArticleMessage.cs" />
+    <Compile Include="Entity\Other\Link.cs" />
+    <Compile Include="Entity\Project\Project.cs" />
+    <Compile Include="Entity\Project\ProjectType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entity\User\User.cs" />
+    <Compile Include="Entity\Blog\UserTourLog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cotide.Framework\Cotide.Framework.csproj">
+      <Project>{E63FCEE6-1AE3-4450-ABD1-AC62B402DFEC}</Project>
+      <Name>Cotide.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Diagram\Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Contracts\Repositories\OutPut.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OutPut.cs</LastGenOutput>
+      <LastOutputs>
+.\Base\IAdRepository.cs
+.\Base\IArticleMessageRepository.cs
+.\Base\IArticleRepository.cs
+.\Base\IArticleTagRepository.cs
+.\Base\IArticleTypeRepository.cs
+.\Base\ILinkRepository.cs
+.\Base\ILinkTypeRepository.cs
+.\Base\IProjectRepository.cs
+.\Base\IProjectTypeRepository.cs
+.\Base\IUserRepository.cs
+.\Base\IUserTourLogRepository.cs
+.\OutPut.cs
+</LastOutputs>
+    </None>
+    <None Include="Diagram\Blog.cd" />
+    <None Include="Diagram\Domain.cd" />
+    <None Include="Diagram\Other.cd" />
+    <None Include="Diagram\User.cd" />
+    <None Include="Diagram\UserImage.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+      -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

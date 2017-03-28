@@ -1,0 +1,20 @@
+﻿@model IList<Cotide.Web.Controllers.Blog.ViewModel.IndexArticleTagViewModel> 
+<div class="row"> 
+        <ul class="nav nav-pills nav-stacked ">
+            <li class="active">
+                <a href="#">
+                    <span class="badge pull-right"><span class="glyphicon glyphicon-tags"></span></span>
+                    标签
+                </a>
+            </li>
+            <p>
+                @if (Model != null && Model.Count > 0)
+                {
+                  foreach (var item in Model)
+                  {
+                      <a href="@Url.Action("Tag", "Blog", new { @id = item.Id })" title="@item.TagName"  style="font-size: @Html.Raw(item.Random + "pt") ;">  @item.TagName </a>
+                  }  
+                 }
+            </p>
+        </ul> 
+</div>

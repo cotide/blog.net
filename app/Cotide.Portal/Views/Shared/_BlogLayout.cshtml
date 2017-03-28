@@ -1,0 +1,37 @@
+﻿@using Cotide.Domain.Contracts.Task
+@{ 
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";  
+}
+@section Head{ 
+}
+@section Content{
+    <!-- 导航 -->
+    <div class="navbar navbar-default navbar-fixed-top" style="background-color: #a3163c;" role="navigation">
+        <div class="container">
+            @{Html.RenderAction("UserNav", "Blog");}
+        </div>
+    </div>
+    <!-- 内容 -->
+ <div class="container">
+    <div class="row">
+        <!-- 左导航 -->
+        <div class="col-xs-12 col-md-3 lettMenu_Other"  >
+            @{Html.RenderAction("HistoryUserHead", "Blog");}
+        </div>
+        <!-- 正文 -->
+        <div class="col-xs-12 col-sm-12 col-md-9 rightMenu_Other"  >
+            @RenderBody()
+        </div>
+    </div>
+</div>
+    <!-- 底部 -->
+ @{Html.RenderPartial("~/Views/Shared/_MainBottom.cshtml");}
+  @*  <div class="container-fluid">
+        <div class="row">
+            <div class="content_left bs-docs-sidebar" style="padding: 0px 20px 0px 10px;">@{Html.RenderAction("HistoryUserHead", "Blog");}</div>
+            <div class="content_right"> </div>
+        </div>
+        <div class="row-fluid">@{Html.RenderAction("FavoritesUserLink", "Blog");}</div>
+    </div>
+    @{Html.RenderPartial("~/Views/Shared/_MainBottom.cshtml");}*@
+}

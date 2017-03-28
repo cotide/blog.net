@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="description" content="@ViewBag.Description" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Html.StyleSheet("lib/bootstrap/3.0.3/css/bootstrap.css")
+    @Html.JqueryScript()
+    @Html.JavaScript("lib/bootstrap/3.0.3/bootstrap.min.js")
+    @Html.StyleSheet("lib/rest.css")
+    @Html.JavaScript("cotide/cotide.core.js")
+    @Html.JavaScript("cotide/cotide.dialog.init.js")
+    <style type="text/css">
+        body { 
+            padding-top: 70px;
+        }
+    </style>
+    <!--[if lt IE 9]>
+      @Html.JavaScript("lib/bootstrap/3.0.3/html5/html5shiv.min.js") 
+      @Html.JavaScript("lib/bootstrap/3.0.3/html5/respond.min.js") 
+    <![endif]-->
+    @RenderSection("Head", false)
+</head>
+    <body>
+        @RenderSection("Content", false) 
+    </body>
+</html>

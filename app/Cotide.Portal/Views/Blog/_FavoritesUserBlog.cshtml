@@ -1,0 +1,36 @@
+﻿@using Cotide.Web.Controllers.Blog.ViewModel.UserTourLog
+@model List<UserTourLogViewModel>
+
+<ul class="nav nav-tabs" style="padding-top: 25px;margin-left:10px;">
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li class="active"><a href="javascript:void(0);"><i class="icon-heart"></i>&nbsp;我的收藏</a>
+    </li>
+</ul>
+
+@if(Model!=null && Model.Count()>0)
+{
+    
+    <ul class="nav nav-pills " style="padding-left: 10px;">
+@foreach(var item in Model)
+{
+     <li   style="margin: 5px 10px 5px 10px;">
+            <div class="thumbnail" style="width: 50px;">
+                <img     style="width: 50px; height: 50px;" src="@item.SmallImgHead"></img>
+              
+            </div> 
+              <div class="caption" style="font-size: 9px;"> 
+                 <a href="@Url.Action("Index","Blog",new {@domain=item.Domain})">@item.BlogName</a>  
+                </div> 
+                <div class="caption" style="font-size: 9px;"> 
+                      @item.UpdateDate
+                </div> 
+        </li> 
+} 
+</ul>
+}else
+{
+   <div class="container-fluid" style="text-align: center; height:100px;">暂时没有访问用户</div>
+}
+
+ 
+ 

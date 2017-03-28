@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = Html.Raw("代表作品 - " + TempData["BlogName"]);
+    ViewBag.Keywords = @Html.Raw("开发者,程序员,编程,代码,极客,Programmer,Coder,Code,Coding,个人博客,IT学习");
+    ViewBag.Description = @Html.Raw("李小潮'Blog ");
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+@using Cotide.Web.Controllers.Blog.ViewModel
+@model ZupPinViewModel
+
+ <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action("Index", "Blog", new { @domain =Model.Domain})  "
+            title="首页">首页</a> </li> 
+                    <li class="active">
+                         代表作品
+                    </li>
+                </ol>
+  </div> 
+ 
+<ul class="nav nav-tabs">
+    <li @(ViewData["index"] == null ? "class=active" : "")  > 
+        <a href="@Url.Content(string.Format("~/{0}/Blog/ZuoPin",Model.Domain)) ">
+            <span>
+                全部</span></a></li> 
+    @foreach (var item in Model.ProjectTypes)
+    { 
+        <li @(ViewData["index"]!=null&&int.Parse(ViewData["index"].ToString())==item.Id?"class=active":"" )>
+            <a href="@Url.Action("ZuoPin", "Blog", new { @id =item.Id})">
+                <span> @item.TypeName </span>
+            </a> 
+        </li>
+    }  
+</ul>
+  @if (Model.Projects != null && Model.Projects.Count > 0)
+  {
+      <div class="panel-body">
+           
+     @for (int i = 0; i < Model.Projects.Count; i++)
+      { 
+          <div class="media" style="padding-top:10px;">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" style="width:215px;" src="@Model.Projects[i].ProjectImg ">
+                    </a>
+                    <div class="media-body">
+                        <h5 class="media-heading">
+                            <a href="@Url.Action("Project","Blog",new {@id=Model.Projects[i].Id})"
+                               target="ext" 
+                               class="pull-right">
+                                <i class="glyphicon glyphicon-share"></i>
+                            </a>
+                             <a href="@Url.Action("Project","Blog",new {@id=Model.Projects[i].Id})"><strong>  @Model.Projects[i].ProjectName</strong></a>
+                        </h5>
+                      <small> @Model.Projects[i].Introduction</small><br>
+                      
+                    </div>
+                  </div> 
+          <hr/>
+        }
+    </div>
+  }
+
+ 
+     

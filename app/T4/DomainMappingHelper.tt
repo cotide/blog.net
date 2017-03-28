@@ -1,0 +1,27 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\NHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\SharpArch.NHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\SharpArch.Domain.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\FluentNHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\T4\lib\Cotide.Infrastructure.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\T4\lib\Cotide.Domain.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\T4\lib\Cotide.Framework.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\T4\lib\Inflector.Net.dll" #> 
+<#@ import namespace="System.IO"#><#@ import namespace="System"#><#@ import namespace="System.Configuration"#>
+<# 
+    // Class Mapper
+    // 初始化
+    SharpArch.NHibernate.NHibernateSession.CloseAllSessions();
+    SharpArch.NHibernate.NHibernateSession.Reset();
+    string projectPath = @"D:\Person\版本二\app\T4\";
+    string nhibernatePath = projectPath + @"lib\NHibernate.config";
+    string[] mappingAssemblies = new[] { projectPath +@"lib\Cotide.Infrastructure.dll" };
+    // 加载配置
+    NHibernate.Cfg.Configuration configuration = SharpArch.NHibernate.NHibernateSession.Init(
+	new SharpArch.NHibernate.SimpleSessionStorage(), mappingAssemblies,
+	new Cotide.Infrastructure.NHibernateMaps.Conventions.AutoPersistenceModelGenerator().Generate(),
+	nhibernatePath);
+    // 获取所有类映射
+    var allClassMetadata = SharpArch.NHibernate.NHibernateSession.GetDefaultSessionFactory().GetAllClassMetadata();
+#> 
+ 

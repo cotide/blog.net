@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = Html.Raw( Model.ProjectName +" - 代表作品 - 李小潮'Blog");
+    ViewBag.Keywords = @Html.Raw("开发者,程序员,编程,代码,极客,Programmer,Coder,Code,Coding,个人博客,IT学习");
+    ViewBag.Description = @Html.Raw("李小潮'Blog ");
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+@using Cotide.Web.Controllers.Blog.ViewModel
+@model ProjectViewModel
+ 
+
+ <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action("Index", "Blog", new { @domain =ViewData["domain"]}) "
+                           title="首页">首页</a> </li> 
+                    <li>
+                        <a href="@Url.Content(string.Format("~/{0}/Blog/ZuoPin",ViewData["domain"]))"
+           title="代表作品">代表作品</a>
+                    </li>
+                    <li class="active">
+                          @Model.ProjectName 
+                    </li>
+                </ol>
+  </div>   
+<div class="row">
+<div class="panel">
+    <div class="panel-heading">
+        @Model.ProjectName 
+    </div>
+    <div class="panel-body">
+            @Html.Raw(@Model.Content)
+    </div> 
+          
+    </div>
+ </div>
+
+ 

@@ -1,0 +1,11 @@
+﻿@{
+    Layout = null;
+}
+@using Cotide.Web.Controllers.Blog.ViewModel
+@model List<LinkViewModel>
+ <ul class="nav nav-tabs" style="padding-top: 25px;margin-left:10px;"> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> <li class="active"><a href="javascript:void(0);" ><i class="icon-heart"></i>&nbsp;我的收藏</a> </li>
+</ul> <ul class="nav nav-pills ">  
+@foreach (var item in Model)
+{ <li style="width:185px; text-align: center;"> <a title="@item.LinkTxt" target="_blank" href="@item.LinkUrl"> @item.LinkTxt</a>  </li> }  
+</ul>
+ 

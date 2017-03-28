@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = Html.Raw(Model.FullArticleTitle + " - 李小潮'Blog");
+    ViewBag.Keywords = @Html.Raw("开发者,程序员,编程,代码,极客,Programmer,Coder,Code,Coding,个人博客,IT学习");
+    ViewBag.Description = @Html.Raw("李小潮'Blog ");
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+ @Html.StyleSheet("shStyle.css")
+ @Html.JavaScript("syntaxHighlighter.js")
+  @Html.StyleSheet("pagerStyle.css")
+  <script type="text/javascript">
+      $(function () {
+          SyntaxHighlighter.all();
+      });
+  </script> 
+@using Cotide.Web.Controllers.Blog.ViewModel
+@model ArticleViewModel
+
+  <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action("Index", "Blog", new { @domain =ViewData["domain"]}) "
+            title="首页">首页</a> </li>
+                    <li  ><a href="@Url.Content(string.Format("~/{0}/Blog/Index",ViewData["domain"]))"
+            title="日志文章">日志文章</a> </li>
+                    <li class="active">
+                          @Model.ArticleTitle
+                    </li>
+                </ol>
+  </div>    
+<div class="row">
+      <div class="panel">
+          <div class="panel-heading" style="font-size: 23px; color: #a3163c; ">
+              @Model.ArticleTitle
+          </div>
+          <div class="panel-body">
+              @if (Model.ArticleTypeId > 0)
+              {
+                <span title="文章类型" class="label label-danger articleTag">
+                    <a rel="tag" href="@Url.Action("ArticleType", "Blog", new { @id = Model.ArticleTypeId })">     @Model.ArticleTypeName   </a>
+                </span>
+              }
+              @if (Model.ArticleTags != null && Model.ArticleTags.Count > 0)
+{
+    foreach (var articleTag in Model.ArticleTags)
+    {
+        <span title="文章标签" class="label label-success articleTag">
+            <a rel="tag" href="@Url.Action("Tag", "Blog", new {@id = articleTag.Key})">     @articleTag.Value   </a>
+        </span>
+    }
+
+}
+          </div>
+          <div class="panel-body">
+              @Html.Raw(Model.Content)
+          </div> 
+             <div class="panel-footer">
+                      <div class="row">
+                          <div class="col-md-12">发布于 @Model.CreateTime.ToString("yyyy年MM月dd日 hh:mm:ss")  </div>
+                           </div>
+           </div>
+      </div>
+
+ </div>
+    
+<div class="row">
+       <div class="panel-body" id="articleCommentPanl"> 
+        </div>  
+</div>
+  
+    <!-- 作者回复/开始 -->
+<div class="row"> 
+    <div class="panel-body">
+        <div style="color:#000;font-size:18px; padding:0px 0px 15px 5px;"  >
+            <span class="glyphicon glyphicon-comment"></span>
+            发表评论 
+        </div>
+        @if (!ViewBag.IsLogin)
+        {
+            // 用户末登录状态
+            Html.RenderAction("AnonymousUserReply", "Blog", Model.ArticleId);
+        }
+        else
+        {
+            // 用户登录状态 
+            Html.RenderAction("UserReply", "Blog", new { @id = Model.ArticleId });
+        } 
+    </div>  
+    </div>
+<!-- 作者回复/结束 -->
+   <script type="text/javascript">
+    $(function() { 
+        $("#articleCommentPanl").ajaxLoadData("@Url.Action("ArticleComment", "Blog", new { @id = Model.ArticleId })");
+    });
+    </script>

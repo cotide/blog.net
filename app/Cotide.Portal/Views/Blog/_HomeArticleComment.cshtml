@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+ @using Cotide.Web.Controllers.Blog.ViewModel 
+ @model List<HomeArticleCommentViewModel>
+ <legend>
+    <lable>  最近评论</lable>
+</legend>
+ @if (Model != null && Model.Count > 0)
+ { 
+<ul class="nav nav-pills nav-stacked">     
+ @foreach (var item in Model)
+ {   
+    <li>
+        <a href="@Url.Action("Article", "Blog", new { @id = item.ArticleId })" title="@item.FullContent" >  @item.NickName:@item.Content  </a>
+    </li> 
+ }       
+</ul>
+ }
+ else
+ { 
+    <p style="text-align: center;">
+        暂无评论
+    </p>
+ }

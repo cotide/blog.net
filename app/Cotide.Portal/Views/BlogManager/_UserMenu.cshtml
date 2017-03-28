@@ -1,0 +1,99 @@
+﻿@{
+    Layout = null;
+}
+@using Cotide.Domain.Enum
+@using Cotide.Web.Controllers.ViewModels
+@model UserViewModel
+
+
+<ul class="nav nav-pills nav-stacked ">
+                    <li class="active">
+                        <a href="#">
+                            <span class="badge pull-right"><span class="glyphicon glyphicon-th"></span></span>
+                            账号
+                        </a>
+                    </li>
+                             <li>
+        @Html.ActionLink("个人信息", "MyAccount", "BlogManager", null, new { @title = "个人信息"})
+    </li>
+  </ul>
+ <ul class="nav nav-pills nav-stacked ">
+                    <li class="active">
+                        <a href="#">
+                            <span class="badge pull-right"><span class="glyphicon glyphicon-th"></span></span>
+                            文章类型管理
+                        </a>
+                    </li>
+                    <li>
+        @Html.ActionLink("文章分类", "ArticleType", "BlogManager", null, new { @title = "文章分类"})
+    </li>
+    <li>
+        @Html.ActionLink("文章标签", "ArticleTag", "BlogManager", null, new { @title = "文章标签"})
+    </li>
+  </ul>
+ 
+ <ul class="nav nav-pills nav-stacked ">
+                    <li class="active">
+                        <a href="#">
+                            <span class="badge pull-right"><span class="glyphicon glyphicon-th"></span></span>
+                            文章管理
+                        </a>
+                    </li>
+              <li>
+        @Html.ActionLink("发布文章", "Index", "BlogManager", null, new { @title = "发布文章"})
+    </li>
+    <li>
+        @Html.ActionLink("文章管理", "ArticleManger", "BlogManager", null, new { @title = "文章管理"})
+    </li>
+  </ul>
+ 
+<ul class="nav nav-pills nav-stacked ">
+    <li class="active">
+        <a href="#">
+            <span class="badge pull-right"><span class="glyphicon glyphicon-th"></span></span>
+            作品管理
+        </a>
+    </li>
+    <li>
+        @Html.ActionLink("作品类型管理", "ProjectType", "BlogManager", null, new { @title = "作品类型管理" })
+    </li> 
+    <li>
+        @Html.ActionLink("新增作品", "AddProject", "BlogManager", null, new { @title = "新增作品" })
+    </li> 
+    <li>
+        @Html.ActionLink("作品管理", "Project", "BlogManager", null, new { @title = "作品管理" })
+    </li> 
+</ul>
+
+<ul class="nav nav-pills nav-stacked ">
+     
+    <li class="active">
+        <a href="#">
+            <span class="badge pull-right"><span class="glyphicon glyphicon-th"></span></span>
+            链接管理
+        </a>
+    </li>
+    <li>
+        @Html.ActionLink("链接类型管理", "LinkType", "BlogManager", null, new { @title = "链接类型管理" })
+    </li> 
+    <li>
+        @Html.ActionLink("链接管理", "Link", "BlogManager", null, new { @title = "链接管理" })
+    </li> 
+</ul>
+  
+@*@if (Model.UserRole.HasFlag(UserLoginRole.Admin))
+{ 
+     <ul class="nav nav-pills nav-stacked ">
+                    <li class="active">
+                        <a href="#">
+                            <span class="badge pull-right"><span class="glyphicon glyphicon-th"></span></span>
+                            广告管理
+                        </a>
+                    </li>
+          <li>
+        @Html.ActionLink("首页广告", "AdManager", "BlogManager", null, new { @title = "首页广告" })
+    </li>
+  </ul>
+ 
+}*@
+

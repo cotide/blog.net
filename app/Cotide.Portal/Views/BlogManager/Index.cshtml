@@ -1,0 +1,203 @@
+﻿@{
+    ViewBag.Title = "文章发布";
+    Layout = "~/Views/Shared/_BlogManagerLayout.cshtml";
+}
+@model Cotide.Web.Controllers.BlogManager.ViewModel.AddArticleModel
+@section Head{
+    @Html.StyleSheet("validate/pagevalidator.css")
+    @Html.JavaScript("validate/pagevalidator_v2.js")
+    @Html.JavaScript("lib/ueditor/ueditor.config.js")
+    @Html.JavaScript("lib/ueditor/ueditor.all.js")
+    <link href="@Html.Context("scripts/lib/ueditor/themes/default/css/ueditor.css")" rel="stylesheet" type="text/css"></link>
+}
+<script type="text/javascript">
+    $(function () {
+        var editor = new baidu.editor.ui.Editor();
+        editor.render("Content");
+    });
+</script>
+
+
+@using (Html.BeginForm("Index", "BlogManager", FormMethod.Post, new
+{
+    @id = "AddArticleFrom",
+    @class = "form-horizontal"
+}))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">发布文章</div>
+    </div>
+
+    <p>
+        @Html.ValidationExSummary("AddArticleFrom")
+    </p>
+    <div class="panel-body">
+        <fieldset>
+            <div class="tab-pane active" id="input">
+                <div class="component">
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="textinput">文章标题 ：</label>
+                        <div class="col-md-10">
+                            <span class="help-block">
+                                @Html.TextBoxExFor(x => x.Title, new
+                                                     {
+                                                         @class = "form-control",
+                                                         @title = "文章标题",
+                                                         @maxlength = "255",
+                                                         @placeholder = "请输入文章标题(必填)"
+                                                     }, new ValidateOption()
+                                                     {
+                                                         EmptyMsg = "您还没输入文章标题",
+                                                         Description =
+                                                             "文章标题格式:1-255位字符",
+                                                         Min = 1,
+                                                         Max = 255,
+                                                         RangeMsg = "请确保文章标题在1-255位字符内"
+                                                     })
+                                @Html.ValidationMessageExFor(x => x.Title)
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="textinput"> 文章简述   :</label>
+                        <div class="col-md-10">
+                            <span class="help-block">
+                                @Html.TextAreaFor(x => x.ContentDesc, new
+                           {
+                               @class = "form-control",
+                               @style = "height: 100px;"
+                           })
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">文章内容</div>
+    </div>
+
+    <div class="panel-body">
+        <fieldset>
+            <div class="tab-pane active" id="input">
+                <div class="component"> 
+                    <div class="form-group" style=" padding-top:8px;">
+                        <div class="col-md-12">
+                            @Html.TextAreaFor(x => x.Content, new { @style = "width: 100%; height: 400px;" })
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+       <div class="panel panel-default">
+        <div class="panel-heading">其他</div>
+    </div>
+
+
+     <div class="panel-body">
+        <fieldset>
+            <div class="tab-pane active" id="input">
+                <div class="component">
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="textinput">  分 类    :</label>
+        <div class="col-md-10">
+            <span class="help-block">
+                @Html.DropDownListExFor(x => x.ArticleTypeId,
+                                    ViewData["ArticleTypes"] as List<SelectListItem>,
+                                    new DropDownListOption()
+                                    {
+                                        Description = "请选择所属文章分类(必填)",
+                                        EmptyMsg = "请选择所属文章分类",
+                                        IsRequired = false
+                                    })
+                @Html.ValidationMessageExFor(x => x.ArticleTypeId,
+                                    new
+                                    {
+                                        @class = "form-control"
+                                    })
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="textinput">  权限    :</label>
+        <div class="col-md-10">
+            <span class="help-block">
+                @Html.DropDownListFor(x => x.IsShow, new List<SelectListItem>()
+                                {
+                                    new SelectListItem()
+                                    {
+                                        Text = @"公开",
+                                        Value = "true"
+                                    },
+                                    new SelectListItem()
+                                    {
+                                        Text = @"仅自己可见",
+                                        Value = "false"
+                                    }
+                                },
+                                    new
+                                    {
+                                        @class = "form-control"
+                                    })
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="textinput">  所属标签   :</label>
+        <div class="col-md-10">
+            <span class="help-block">
+                @{
+    var articleTagsVoewData = ViewData["ArticleTags"] as List<SelectListItem>;
+                }
+                @if (articleTagsVoewData == null || articleTagsVoewData.Count <= 0)
+                {
+
+                    @:暂无文章标签 | @Html.ActionLink("新增", "ArticleTag", "BlogManager", new { @style = "color:Red;" })
+                     
+
+                }
+                else
+                {
+                    foreach (var item in articleTagsVoewData)
+                    {
+
+                        <input type="checkbox" name="ArticleTag" value="@item.Value " />
+                        @item.Text
+                    }
+                }
+            </span>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="textinput">&nbsp;</label>
+        <div class="col-md-10">
+            <span class="help-block">
+                <button type="submit" class="btn btn-primary">
+                    发布
+                </button>
+            </span>
+        </div>
+
+    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+}

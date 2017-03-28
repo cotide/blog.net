@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+}
+@using Cotide.Web.Controllers.Blog.ViewModel.Article
+@model SaveMessageReplyViewModel
+
+<script type="text/javascript">
+    $(function () {
+        var id = "@Model.FormGuId";
+        $("#SaveMessageReplyFrom" + id).ajaxPostForm(function () {
+            var $form = $("#SaveMessageReplyFrom" + id);
+            var replyComment = $form.find("textarea[name='ReplyComment']");
+            var nickName = $form.find("input[name='ReplyNickName']");
+
+            // 评论前验证
+            if ($.trim(nickName.val()) == "") {
+                cotide.dialog.showResultMsg('@("msgTip" + Model.FormGuId)', "请输入您的昵称!", "info");
+                return false;
+            }
+            if ($.trim(replyComment.val()) == "") {
+                cotide.dialog.showResultMsg('@("msgTip" + Model.FormGuId)', "请输入您的评论内容!", "info");
+                return false;
+            }
+
+            return true;
+
+            return true;
+        }, function () {
+            var $form = $("#SaveMessageReplyFrom" + id);
+            $form.find("input[name='ReplyNickName']").val("");
+            $form.find("input[name='ReplyEmail']").val("");
+            $form.find("input[name='ReplyWebSiteUrl']").val("");
+            $form.find("textarea[name='ReplyComment']").val("");
+            // 评论成功交互  
+            var loadUrl = "@Url.Action("ArticleComment", "Blog", new { @id = Model.ArticleId })";
+            $("#articleCommentPanl").load(loadUrl.urlstamp());
+        }, function (e) {
+            // 评论失败 
+            cotide.dialog.showResultMsg('@("msgTip" + Model.FormGuId)', e.Data, "error");
+        });
+    });
+</script>
+
+<div class="col-xs-12 col-md-12" commentitem="true" style="display: none; background-color: #f5f5f5; border: 1px solid #dddddd; margin:10px 0px 10px 0px ">
+    @using (Html.BeginForm("SaveAnonymousUserMessageReply", "Blog", FormMethod.Post,
+                           new { @id = "SaveMessageReplyFrom" + Model.FormGuId }))
+    {
+        <p>
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x => x.ArticleId)
+            @Html.HiddenFor(x => x.ReplyMessageId)
+            <p><small>发表评论</small></p>
+            <div id='@("msgTip" + Model.FormGuId)' >
+            </div>
+            
+        </p>
+        <p>
+                <span>姓名: </span>  @Html.TextBoxFor(x => x.ReplyNickName, new { @size = "22", @tabindex = "1", @placeholder = "请输入昵称" })
+            </p>
+        <p>
+             
+                <span>邮件: </span>  @Html.TextBoxFor(x => x.ReplyEmail, new { @size = "22", @tabindex = "2", @placeholder = "请输入Email(非必填)" })
+             
+        </p>
+        <p>
+            
+                <span>站点:  </span>@Html.TextBoxFor(x => x.ReplyWebSiteUrl, new { @size = "22", @tabindex = "2", @placeholder = "请输入个人网站(非必填)" })
+           
+
+        </p>
+        <p>
+             
+                评论:  @Html.TextAreaFor(x => x.ReplyComment,
+                                           new
+                                               {
+                                                   @rows = "5",
+                                                   @style =
+                                               "border: 1px solid #C6C6C6;  resize: none; width: 70%;",
+                                                   @tabindex = "4",
+                                                   @placeholder = "请输入评论内容"
+                                               })
+            
+
+        </p>
+        <p style="padding-left: 50px;">
+            <button type="submit" class="btn btn-primary">
+                <i class="icon-user"></i>评论</button>
+        </p>
+    }
+</div>

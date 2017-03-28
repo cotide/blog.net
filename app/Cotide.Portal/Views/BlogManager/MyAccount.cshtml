@@ -1,0 +1,237 @@
+﻿@{
+    ViewBag.Title = "个人信息";
+    Layout = "~/Views/Shared/_BlogManagerLayout.cshtml";
+} 
+@model Cotide.Web.Controllers.BlogManager.ViewModel.UserAccountModel
+@section Head{
+    @Html.StyleSheet("validate/pagevalidator.css")
+    @Html.JavaScript("validate/pagevalidator_v2.js") 
+ 
+}
+ 
+@using (Html.BeginForm("MyAccount", "BlogManager", FormMethod.Post, new
+{
+    @id = "UpdateUserAccount",
+    @class = "form-horizontal",
+    @enctype = "multipart/form-data"
+}))
+{
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">个人信息</div>
+        <p>
+            @Html.ValidationExSummary("UpdateUserAccount")
+        </p>
+        <div class="panel-body">
+            <fieldset>
+                <div class="tab-pane active" id="input">
+                    <div class="component">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="margin-left:20px;" for="textinput"><img style="width: 130px; height: 130px;" src="@Model.ImgHead"></img></label>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">头像:</label>
+                            <div class="col-md-10">
+                                <input type="file" name="file" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">账号:</label>
+                            <div class="col-md-10">
+                                <span class="help-block">@Model.UserName </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">中文名称 ：</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxExFor(x => x.RealName, new
+                                {
+                                    @class = "form-control",
+                                    @title = "中文名称",
+                                    @maxlength = "20",
+                                    @placeholder = "请输入中文名称(必填)"
+                                }, new ValidateOption()
+                                {
+                                    EmptyMsg = "您还没输入中文名称",
+                                    Description =
+                                        "中文名称格式:1-20位字符",
+                                    Min = 1,
+                                    Max = 20,
+                                    RangeMsg = "请确保中文名在1-20位字符内"
+                                })
+                                @Html.ValidationMessageExFor(x => x.RealName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">英文名 ：</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxExFor(x => x.EnRealName, new
+                                {
+                                    @class = "form-control",
+                                    @title = "英文名称",
+                                    @maxlength = "20",
+                                }, new ValidateOption()
+                                {
+                                    Min = 0,
+                                    Max = 20,
+                                    RangeMsg = "请确保中文名在0-20位字符内",
+                                    IsEmpty = true
+                                })
+                                @Html.ValidationMessageExFor(x => x.EnRealName)
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput"> 手机号码 ：</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxExFor(x => x.Phone, new
+                                {
+                                    @class = "form-control",
+                                    @title = "手机号码",
+                                    @maxlength = "15",
+                                }, new ValidateOption()
+                                {
+                                    Regex = @"/^1[3|4|5|8][0-9]\d{4,8}$/",
+                                    RegexMsg = "请确保手机号码格式正确",
+                                    Description = "手机号码仅自己可见",
+                                    IsEmpty = true
+                                })
+                                @Html.ValidationMessageExFor(x => x.Phone)
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">  性别 ：</label>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(x => x.Sex,
+                                new List<SelectListItem>()
+                                {
+                                    new SelectListItem() {Text = @"-请选择性别-", Value = "2"},
+                                    new SelectListItem() {Text = @"男", Value = "0" },
+                                    new SelectListItem() {Text = @"女", Value = "1" }
+                                },
+                                new
+                                {
+                                    @class = "form-control"
+                                })
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+
+        <div class="panel-heading">博客信息</div>
+        <div class="panel-body">
+            <fieldset>
+                <div class="tab-pane active" id="input">
+                    <div class="component">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">博客名称 ：</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxExFor(x => x.BlogName, new
+                                {
+                                    @class = "form-control",
+                                    @title = "博客名称",
+                                    @maxlength = "50",
+                                    @placeholder = "请输入博客名称(必填)"
+                                }, new ValidateOption()
+                                {
+                                    EmptyMsg = "您还没输入博客名称",
+                                    Description =
+                                        "博客名称格式:1-50位字符",
+                                    Min = 1,
+                                    Max = 50,
+                                    RangeMsg = "请确保博客名称在1-50位字符内"
+                                })
+                                @Html.ValidationMessageExFor(x => x.BlogName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">博客描述 ：</label>
+                            <div class="col-md-10">
+                                @Html.TextAreaExFor(x => x.BlogDesc, new
+                                   {
+                                       @class = "form-control",
+                                       @title = "博客描述",
+                                       @maxlength = "255",
+                                       @style = "height:120px;",
+                                       @placeholder = "请输入博客描述"
+                                   }, new ValidateOption()
+                                   {
+                                       Max = 255,
+                                       RangeMsg = "请确保博客描述在0-255位字符内",
+                                       IsEmpty = true
+                                   })
+                                @Html.ValidationMessageExFor(x => x.BlogDesc)
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="panel-heading">其他</div>
+        <div class="panel-body">
+            <fieldset>
+                <div class="tab-pane active" id="input">
+                    <div class="component">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">Email ： </label>
+                            <div class="col-md-10">
+                                @Html.TextBoxExFor(x => x.Emali, new
+                                {
+                                    @class = "form-control",
+                                    @title = "Email",
+                                    @maxlength = "30",
+                                }, new ValidateOption()
+                                {
+                                    Regex = @"/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/",
+                                    RegexMsg = "请确Email格式正确",
+                                    IsEmpty = true
+                                })
+                                @Html.ValidationMessageExFor(x => x.Emali)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">个人微博 ： </label>
+                            <div class="col-md-10">
+                                @Html.TextBoxExFor(x => x.WeiBoUrl, new
+                                {
+                                    @class = "form-control",
+                                    @title = "个人微博",
+                                    @maxlength = "200",
+                                }, new ValidateOption()
+                                {
+                                    Regex = @"/^((http|https):\/\/)?((weibo.com|WEIBO.COM)\/+[a-zA-Z0-9_-]+$)/",
+                                    RegexMsg = "请确个人微博格式正确",
+                                    IsEmpty = true
+                                })
+                                @Html.ValidationMessageExFor(x => x.WeiBoUrl)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput"> &nbsp;</label>
+                            <div class="col-md-10">
+                                <button type="submit" class="btn btn-primary">
+                                    保存
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>  
+}

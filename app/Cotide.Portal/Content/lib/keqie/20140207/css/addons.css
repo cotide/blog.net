@@ -1,0 +1,88 @@
+/*!
+ * 渴切(Cutter)开源中文css框架 v3.2
+ *
+ * Copyright 2012 keqie.com, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+/**
+ 命名规范
+ * $codex 1. id和class命名采用该版块的英文单词或组合命名，并第一个单词小写，第二个单词首个字母大写，如:keqieCss（最新产品/keqie+Css)
+ * $codex 2. CSS样式表各区块用注释说明
+ * $codex 3. 尽量使用英文命名原则
+ * $codex 4. 尽量不加中杠和下划线
+ * $codex 5. 尽量不缩写，除非一看就明白的单词
+ * $hack :ie 6 _  \ ie7 *+ \  ie6,ie7 *  \  ie7,firefox !important ie9, \9
+*/
+ul
+{
+    margin-left: 10px;
+}
+
+    ul li
+    {
+        list-style: none;
+    }
+    
+
+.naver
+{
+    background: none;
+    height: 40px;
+    line-height: 40px;
+}
+
+    .naver .sub a
+    {
+        color: #fff;
+    }
+
+
+.brand
+{
+    text-decoration: none;
+    font-size: 24px;
+    /*padding-left: 0 !important;*/
+    font-weight: bold;
+    padding: 0 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+    transition: all 0.2s linear 0s;
+    color: #ffc40d;
+    line-height: 40px;
+    height: 40px;
+}
+
+    .brand:hover
+    {
+        text-decoration: none;
+        background: none;
+        color: #000000;
+    }
+
+.head
+{
+}
+
+    .head a
+    {
+        text-decoration: none;
+        /*color: #a3163c;*/
+    }
+
+    .head .sel
+    {
+        background-color: #a3163c;
+    }
+
+    .head .selected
+    {
+        border: none;
+    }
+
+        .head .selected img
+        {
+            padding: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cotide.Domain.User">
+    <Position X="0.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAhAAACIAChQAgABIKAIABAUAgAAAEgAAQkBIAAAgIM=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cotide.Domain.ArticleType">
+    <Position X="6.25" Y="1.75" Width="2" />
+    <AssociationLine Name="User" Type="Cotide.Domain.User" ManuallyRouted="true">
+      <Path>
+        <Point X="7.25" Y="1.75" />
+        <Point X="7.25" Y="0.453" />
+        <Point X="1.625" Y="0.453" />
+        <Point X="1.625" Y="1.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.345" Y="0.628" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAA=</HashCode>
+      <FileName>ArticleType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Articles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Cotide.Domain.ArticleTag">
+    <Position X="6.25" Y="5.75" Width="2" />
+    <AssociationLine Name="Articles" Type="Cotide.Domain.Article">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.259" Y="0.42" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAACAA=</HashCode>
+      <FileName>ArticleTag.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Articles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Cotide.Domain.Article">
+    <Position X="3.25" Y="7.75" Width="2" />
+    <AssociationLine Name="ArticleMessages" Type="Cotide.Domain.ArticleMessage">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.94" Y="0.256" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="User" Type="Cotide.Domain.User">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.284" Y="1.273" Height="0.181" Width="0.687" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAABQAAAAgIAEEAAAIAAIBAQAAAAAACAAAABAAAABAA=</HashCode>
+      <FileName>Article.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ArticleType" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ArticleTags" />
+      <Property Name="ArticleMessages" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cotide.Domain.UserTourLog">
+    <Position X="0.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>UserTourLog.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+      <Property Name="TourUser" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cotide.Domain.ArticleMessage">
+    <Position X="3.5" Y="13.5" Width="1.75" />
+    <AssociationLine Name="BaseArticleMessage" Type="Cotide.Domain.ArticleMessage">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.111" Y="0.661" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAiIAAAAAABAAAAAAEAAAAAGAAAABAAAAAgA=</HashCode>
+      <FileName>ArticleMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BaseArticleMessage" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ArticleMessages" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Cotide.Domain.Ad" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQEAAAQAAAAAAgAAACAAAAAAIAAAAA=</HashCode>
+      <FileName>Ad.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,207 @@
+﻿@{
+    ViewBag.Title = "链接管理";
+    Layout = "~/Views/Shared/_BlogManagerLayout.cshtml";
+}
+@section Head{
+    @Html.StyleSheet("validate/pagevalidator.css")
+    @Html.JavaScript("validate/pagevalidator_v2.js")   
+    @Html.StyleSheet("lib/jquery-ui-1.8.11.custom.css")    
+    @Html.JavaScript("lib/jquery-ui.min.js")    
+    @Html.JavaScript("cotide/cotide.dialog.init.js")   
+}
+ @using Cotide.Web.Controllers.BlogManager.ViewModel
+  @model Cotide.Framework.Collections.PagedList<LinkModel> 
+   <script type="text/javascript">
+       function DeleteLink(obj) {
+           if (confirm('是否删除该链接?')) {
+               location = $(obj).attr("ref");
+           }
+       }
+       function UpdateLink(obj) {
+           var url = $(obj).attr("ref");
+           cotide.dialog.open(url, "修改链接", 480, 230, function () {
+               location = '@Url.Action("Link", "BlogManager")';
+           });
+       } 
+  </script> 
+
+@using (Html.BeginForm("AddLink", "BlogManager", FormMethod.Post, new
+   {
+
+       @id = "AddLinkFrom",
+       @class = "form-horizontal"
+   }))
+{ 
+    
+        <div class="panel panel-default">
+            <div class="panel-heading">新增链接类型</div>
+            <p>
+                @Html.ValidationExSummary("AddLinkTypeFrom")
+            </p>
+            <div class="panel-body">
+                <fieldset>
+                    <div class="tab-pane active" id="input">
+                        <div class="component">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="textinput">  链接名称 ：</label>
+                                <div class="col-md-10">
+                                    <span class="help-block">
+                                        @Html.TextBoxEx("linkTxt", new
+                                        {
+                                            @class = "form-control",
+                                            @title = "链接名称",
+                                            @maxlength = "30",
+                                            @placeholder = "请输入链接名称(必填)"
+                                        }, new ValidateOption()
+                                        {
+                                            EmptyMsg = "您还没输入链接名称",
+                                            Description =
+                                                "链接名称格式:1-30位字符",
+                                            Min = 1,
+                                            Max = 30,
+                                            RangeMsg = "请确保链接名称在1-30位字符内"
+                                        })
+                                        @Html.ValidationMessageEx("linkTxt")
+                                    </span>
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="textinput"> 链接类型 ：</label>
+                                <div class="col-md-10">
+                                    <span class="help-block">
+                                        @Html.DropDownListEx("linkTypeId",
+                                    ViewData["LinkTypes"] as List<SelectListItem>,
+                                    new DropDownListOption()
+                                    {
+                                        Description = "请选择所属链接分类(必填)",
+                                        EmptyMsg = "请选择所属链接分类",
+                                        IsRequired = false
+                                    },null,new{
+                                        @class = "form-control"
+                                    })
+                                        @Html.ValidationMessageEx("linkType" )
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="textinput">  链接地址 ：</label>
+                                <div class="col-md-10">
+                                    <span class="help-block">
+                                        @Html.TextBoxEx("linkHref", new
+                                         {
+                                             @class = "form-control",
+                                             @title = "链接名称",
+                                             @maxlength = "150",
+                                             @placeholder = "请输入链接地址(必填)"
+                                         }, new ValidateOption()
+                                         {
+                                             EmptyMsg = "您还没输入链接名称",
+                                             Description =
+                                                 "链接名称格式:1-150位字符",
+                                             Min = 1,
+                                             Max = 150,
+                                             RangeMsg = "请确保链接地址在1-150位字符内"
+                                         })
+                                        @Html.ValidationMessageEx("linkHref")
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="textinput">  &nbsp;</label>
+                                <div class="col-md-10">
+                                    <span class="help-block">
+                                        <button type="submit" class="btn btn-primary"> 保存 </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">链接管理</div> 
+    <table class="table  table-hover">
+        <tr class="info">
+            <th>
+                序号
+            </th>
+            <th>
+                链接名称
+            </th>
+            <th>
+                链接类型
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                变更时间
+            </th>
+            <th>
+                修改
+            </th>
+            <th>
+                彻底删除
+            </th>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr @if ((i % 2) == 0) { @: class="'firseTd'"
+                                                                                                    }>
+                <td>
+                    @(i + 1)
+                </td>
+                <td>
+                    @Model[i].LinkTxt
+                </td>
+                <td>
+                    @Model[i].LinkTypeName
+                </td>
+                <td>
+                    @Html.ActionLink(Model[i].IsShow ? "显示" : "隐藏", "SetLinkIsShow", new { @linkId = Model[i].Id })
+                </td>
+                <td>
+                    @Model[i].LastUpdate
+                </td>
+                <td>
+                    <a ref="@Url.Action("UpdateLink", "BlogManager", new { @linkId = Model[i].Id })" href="javascript:void(0);"
+                       onclick="UpdateLink(this)">修改</a>
+                </td>
+                <td>
+                    <a href='javascript:void(0);' ref="@Url.Action("DeleteLink")?linkId=@Model[i].Id "
+                       onclick="DeleteLink(this)">删除</a>
+                </td>
+            </tr>
+        }
+        @if (Model.Count <= 0)
+        {
+            <tr class="firseTd">
+                <td colspan="9" style="text-align: center;">
+                    暂无数据
+                </td>
+            </tr>
+        }
+        <tfoot>
+            <tr>
+                <td colspan="8">
+                    共有 @Model.TotalCount 条记录
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <p> 
+        @Html.Pager("pageIndex", Model.PageSize, Model.TotalCount)
+    </p>
+
+
+</div>
+    
+    
+     

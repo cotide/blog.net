@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "用户登录";
+    Layout = "~/Views/Shared/_MainLayout.cshtml"; 
+}
+@model Cotide.Web.Controllers.ViewModels.User.UserLoginViewModel
+@section Head{
+      <style  type="text/css">
+        body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+    </style>
+    @Html.StyleSheet("validate/pagevalidator.css")
+    @Html.JavaScript("validate/pagevalidator_v2.js")
+
+}
+@using (Html.BeginForm("Login", "Reg", FormMethod.Post, new { @class = "form-signin", id = "form-signin" }))
+{
+   
+     <h3 class="form-signin-heading"><span class="glyphicon glyphicon-user"></span>用户登录</h3>
+  <p>
+        @Html.ValidationExSummary("form-signin")
+    </p>
+      <p>
+        @Html.TextBoxExFor(x => x.UserName, new
+        { 
+            @title = "手机号/账号/邮箱",
+            @maxlength = "50",
+            @placeholder = "登录名", 
+            @class="form-control"
+        }, new ValidateOption()
+        {
+            EmptyMsg = "账户格式：3-50位字符!", 
+            Min = 1,
+            Max = 50,
+            RangeMsg = "请确保账户在3-50位字符内!"
+        })
+        
+    </p>
+    <p>
+        @Html.ValidationMessageExFor(x => x.UserName)
+    </p>
+    <p>
+         @Html.PasswordExFor(x => x.Paw, new
+   { 
+       @title = "密码",
+       @maxlength = "20",
+       @placeholder = "密码",
+          @class="form-control"
+   }, new PassValidateOption()
+   {
+       EmptyMsg = "您还没输入密码!", 
+       Min = 3,
+       Max = 20,
+       RangeMsg = "请确保密码在3-20个字符!"
+   })
+    </p> 
+    
+    <p>
+        @Html.ValidationMessageExFor(x => x.Paw)
+        </p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button> 
+}
+
+    

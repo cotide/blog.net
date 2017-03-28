@@ -1,0 +1,223 @@
+﻿ 
+.img-thumbnail {
+    padding: 2px;
+    background-color: #ffc40d;
+}
+
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+    background-color: #a3163c;
+    border-color: #000;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover {
+    background-color: #a3163c;
+}
+
+a {
+    color: #a3163c;
+    cursor: pointer;
+}
+
+
+    a:hover {
+        color: #CC0000;
+        text-decoration: none;
+      
+    }
+
+
+    .nav > li > a:hover,
+.nav > li > a:focus { 
+  background-color: #ffc40d;
+}
+
+
+.nav-pills > .active > a > .badge {
+    color: #a3163c;
+    background-color: #ffc40d;
+}
+
+.panel-default > .panel-heading {
+    color: #fff;
+    background-color:#666666;
+}
+  
+.breadcrumb {
+    border: 1px solid transparent;
+    border-color: #000;
+    box-sizing: border-box;
+    background-color:  #333333;
+}
+
+    .breadcrumb a {
+        color: #ffc40d;
+    }
+     
+.panel-heading {
+    font-weight: normal;
+}
+
+#footer {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ddd;
+    border-top: 1px solid transparent;
+    border-color: #000;
+}
+ 
+
+code {
+    font-size: 80%;
+}
+.lettMenu_Other {
+   padding:0px 13px 0px 13px;
+}
+.lettMenu_Other .row {
+    margin: 1px;
+}
+ 
+.nav-tabs > li {
+    margin-left: 15px;
+}
+.articleTag {
+    margin-left:3px;
+}
+.articleTag  a { 
+    color:#fff;
+}
+
+.alert {
+    padding: 6px;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+color: #ffffff;
+background-color: #ffc40d;
+border-color: #000;
+}
+.btn-primary   {
+color: #ffffff;
+background-color: #393;
+border-color: #000;
+}
+
+
+/* 表单样式 */ 
+#components {
+  min-height: 500px;
+margin-top:5px;
+}
+
+#target fieldset {
+  border: 1px solid #ccc;
+  min-height: 220px;
+  padding: 5px;
+  padding-bottom: 50px;
+}
+
+.component {
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+.popover {
+  z-index: 9999;
+}
+.popover .control-group {
+  cursor: default;
+}
+.popover input {
+  cursor: text;
+}
+
+.temp{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  z-index: 999999;
+  top: 0;
+  overflow-x: hidden;
+  left: 0;
+}
+
+.temp form {
+  padding: 8px 4px;
+  border: 1px dotted #ccc;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 0px 30px #999;
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  overflow: hidden;
+}
+
+#render{
+  min-height: 500px;
+  font-family: monospace;
+}
+
+/* Popovers now are appended to their parent rather
+than to the body/main document as they once were.
+We need to over-ride some inherited stuff.. */
+form .popover .controls {
+  margin-left: 0;
+}
+
+form .popover .control-label {
+  text-align: left;
+}
+
+form .popover form {
+  width: 300px;
+}
+
+.popover-content form .btn{
+  /* margin-right: 10px */
+}
+
+.target:after{
+  float:left;
+  content: " ";
+  height: 77px;
+  margin-top: 3px;
+  background: #f0f0f0;
+  width: 100%;
+  border: 1px dashed #ccc;
+}
+
+#target, #input, #radioscheckboxes, #select, #buttons {
+ -webkit-touch-callout: none;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
+}
+
+#target fieldset{
+ width: 100%;
+ overflow: hidden;
+}
+.panel {
+    padding-top: 10px;
+    border: none;
+    -webkit-box-shadow: none;
+    margin-bottom: 0px;
+}
+
+.panel-footer {
+ font-size:12px;
+}
+
+.label-warning {
+background-color: #333;
+}
+
+.bs-example {
+    font-size: 12px;
+} 

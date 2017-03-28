@@ -1,0 +1,26 @@
+﻿@model List<Cotide.Web.Controllers.Blog.ViewModel.HistoryArticleViewModel> 
+<div class="row">
+    <ul class="nav nav-pills nav-stacked ">
+        <li class="active">
+            <a href="#">
+                <span class="badge pull-right"><span class="glyphicon glyphicon-pencil"></span></span>
+                最近文章
+            </a>
+        </li>
+        @if (Model != null && Model.Count > 0)
+        {
+                foreach (var item in Model)
+                {
+                    <li>@Html.ActionLink(item.ArticleTitle, "Article", "Blog", new  {
+                                                                    @id=item.ArticleId
+                                                                }, new
+                                                                {
+                                                                    @title = item.FullArticleTitle,
+                                                                               
+                                                                })  </li> 
+                }
+        }
+        </ul>
+</div>
+
+ 

@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+@using Cotide.Web.Controllers.Blog.ViewModel.Article
+@model SaveMessageViewModel
+ 
+@using (Html.BeginForm("SaveAnonymousUserMessage", "Blog", FormMethod.Post, new { @id = "SaveMessageFrom"  }))
+  { 
+    
+    @Html.AntiForgeryToken()
+  <div id="msgTip">
+ </div>
+  @Html.HiddenFor(x => x.ArticleId) 
+ <p>
+     <span> 姓 名：  </span>
+      @Html.TextBoxFor(x => x.NickName, new { @size = "22", @tabindex = "1", @placeholder = "姓 名" }) 
+ </p>
+    
+    <p>
+        <span> 邮 件： </span>  
+        @Html.TextBoxFor(x => x.Email, new
+        {
+            @size = "22",
+            @tabindex = "2",
+            @placeholder = "请输入Email(非必填)"
+        })
+    </p> 
+ <p> <span> 站 点：  </span>
+    @Html.TextBoxFor(x => x.WebSiteUrl, new
+{
+    @size = "22",
+    @tabindex = "3",
+    @placeholder = "请输入个人网站(非必填)"
+})  
+</p>
+<p>  <span>评 论：  </span>
+    @Html.TextAreaFor(x => x.Comment, new
+{
+    @rows = "9",
+    @style = "width: 70%;",
+    @placeholder = "请输入评论内容",
+    @tabindex = "4"
+}) 
+</p>
+      <p style="padding-left:50px;"> 
+    <button type="submit" class="btn btn-primary">
+        <i class="icon-user"></i>   评论   </button>
+</p> 
+    } 
+
+<script type="text/javascript">
+    $(function () { 
+        $("#SaveMessageFrom").ajaxPostForm(function() { 
+            // 评论前验证
+            if ($.trim($("#NickName").val()) == "") {  
+                cotide.dialog.showResultMsg("msgTip", "请输入您的昵称!", "info");
+                return false; 
+            } 
+            // 评论前验证
+            if ($.trim($("#Comment").val()) == "") { 
+                cotide.dialog.showResultMsg("msgTip", "请输入评论内容!", "info");
+                return false;
+             }
+            return true;
+        }, function () {
+            // 评论成功
+            $("#NickName").val("");  
+            $("#Email").val("");  
+            $("#WebSiteUrl").val("");  
+            $("#Comment").val("");  
+            cotide.dialog.showResultMsg("msgTip", "评论成功!", "success");
+            $("#articleCommentPanl").ajaxLoadData("@Url.Action("ArticleComment", "Blog", new { @id = Model.ArticleId })");
+        },function (e) { 
+            // 评论失败
+            cotide.dialog.showResultMsg("msgTip", e.Data, "error");
+        });
+    })
+</script>

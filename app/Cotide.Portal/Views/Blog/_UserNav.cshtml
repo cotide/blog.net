@@ -1,0 +1,41 @@
+﻿@model Cotide.Web.Controllers.ViewModels.HistoryUserViewModel
+
+ <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+         <span class="sr-only">切换导航</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="@Url.Action("Index", "Blog")">@Model.BlogName  </a>
+ </div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="@Url.Action("Index", "Blog")"><span class="glyphicon glyphicon-home"></span>&nbsp; 首页</a></li>
+        <li><a href="@Url.Action("ZuoPin", "Blog")"><span class="glyphicon glyphicon-globe"></span>&nbsp; 代表作品</a></li>
+        <li><a href="@Url.Action("Link", "Blog")"><span class="glyphicon glyphicon-heart"></span>&nbsp; 收藏的网址</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        @if (!Model.IsCurrentLoginUser)
+        {
+            @*<li><a href="@Url.Action("Login", "Reg")"><span class="glyphicon glyphicon-log-in"></span>&nbsp; 登录</a></li>*@
+
+        }
+        else
+        {
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> 用户 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                      <li><a href="@Url.Action("Index", "BlogManager", new
+                                   {
+                                       @domain = Model.Domain
+                                   })">用户中心</a></li>
+     
+                    <li><a href="@Url.Action("LoginOut", "Reg")">退出</a> </li>
+                </ul>
+            </li>
+        }
+    </ul>
+</div> 
+

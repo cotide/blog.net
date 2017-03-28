@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = @Html.Raw(TempData["BlogName"].ToString());
+    ViewBag.Keywords = @Html.Raw("程序员,编程,代码爱好者,极客,开源,架构,Programmer,.NET, .net,Coder,Code");
+    ViewBag.Description = @Html.Raw("Cotide.NET - 分享您身边的新鲜事");
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+ @Html.StyleSheet("pagerStyle.css")
+@model Cotide.Framework.Collections.PagedList<Cotide.Web.Controllers.Blog.ViewModel.ArticleViewModel> 
+       <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="@Url.Action("Index","Blog")">首页</a></li>
+                    <li class="active">日志文章</li>
+
+                </ol>
+       </div> 
+  @if (Model!=null && Model.Count > 0)
+  {   
+    foreach (var item in Model)
+      { 
+         <div class="row">
+                <div class="panel ">
+                    <div class="panel-heading "  style="font-size:21px;">
+                        @Html.ActionLink(item.ArticleTitle, "Article", "Blog", new {@id = item.ArticleId},
+                            new
+                            {
+                                @title = item.FullArticleTitle 
+                            }) 
+                         
+                    </div>
+                    <div class="panel-body" style="padding:2px 2px 2px 10px">
+                        @if (item.ArticleTypeId > 0)
+{
+    <span title="文章类型" class="label label-danger articleTag">
+        <a rel="tag" href="@Url.Action("ArticleType", "Blog", new { @id = item.ArticleTypeId })">     @item.ArticleTypeName   </a>
+    </span>
+} 
+                       @if (item.ArticleTags != null && item.ArticleTags.Count > 0)
+                        {
+
+                            foreach (var articleTag in item.ArticleTags)
+                            {
+                                <span title="文章标签" class="label label-success articleTag">
+                                    <a rel="tag" href="@Url.Action("Tag", "Blog", new {@id = articleTag.Key})">     @articleTag.Value   </a>
+                                </span>
+                            }
+                        }
+                    </div>
+                    <div class="panel-body " >
+                        <p style="text-indent: 2em;">
+                            @Html.Raw(item.Content)
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                      <div class="row"> 
+                          <div class="col-xs-6  col-md-6" style="float:left;"> @item.ReadCount  阅读  / @item.CommentCount 评论  </div>
+                          <div class="col-xs-6  col-md-6" style="float: right; text-align: right;">发布于 @item.CreateTime.ToString("yyyy年MM月dd日 hh:mm:ss") </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+      }
+      
+      <div class="row">
+           @Html.Pager("pageIndex", Model.PageSize, Model.TotalCount)  
+      </div>
+  }
+else
+{ 
+     <p> 暂无内容</p>
+} 

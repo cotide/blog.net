@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56D6C9C1-F65F-4F31-BCA6-A4DC53BD6E6E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cotide.Tasks</RootNamespace>
+    <AssemblyName>Cotide.Tasks</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.NHibernate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="CommandHandlers\AdHandlers\CreateAdHandle.cs" />
+    <Compile Include="CommandHandlers\AdHandlers\DeleteAdHandle.cs" />
+    <Compile Include="CommandHandlers\AdHandlers\UpdateAdHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleHandlers\CreateArticleMessageReplyHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleHandlers\CreateArticleHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleHandlers\CreateArticleMessageHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleHandlers\DeleteArticleHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleHandlers\DeleteArticleMessageHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleHandlers\UpdateArticleHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleTagHandlers\CreateArticleTagHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleTagHandlers\DeleteArticleTagHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleTagHandlers\UpdateArticleTagHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleTypeHandlers\CreateArticleTypeHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleTypeHandlers\DeleteArticleTypeHandle.cs" />
+    <Compile Include="CommandHandlers\ArticleTypeHandlers\UpdateArticleTypeHandle.cs" />
+    <Compile Include="CommandHandlers\LinkHandlers\CreateLinkHandle.cs" />
+    <Compile Include="CommandHandlers\LinkHandlers\DeleteLinkHandle.cs" />
+    <Compile Include="CommandHandlers\LinkHandlers\UpdateLinkHandle.cs" />
+    <Compile Include="CommandHandlers\LinkTypeHandles\DeleteLinkTypeHandle.cs" />
+    <Compile Include="CommandHandlers\LinkTypeHandles\UpdateLinkTypeHandle.cs" />
+    <Compile Include="CommandHandlers\LinkTypeHandles\CreateLinkTypeHandle.cs" />
+    <Compile Include="CommandHandlers\ProjectHandlers\CreateProjectHandle.cs" />
+    <Compile Include="CommandHandlers\ProjectHandlers\DeleteProjectHandle.cs.cs" />
+    <Compile Include="CommandHandlers\ProjectTypeHandlers\CreateProjectTypeHandle.cs" />
+    <Compile Include="CommandHandlers\ProjectTypeHandlers\DeleteProjectTypeHandle.cs" />
+    <Compile Include="CommandHandlers\ProjectTypeHandlers\UpdateProjectTypeHandle.cs" />
+    <Compile Include="CommandHandlers\UserTourLogHandlers\CreateUserTourLogHandle.cs" />
+    <Compile Include="CommandHandlers\UserHandlers\CreateUserHandle.cs" />
+    <Compile Include="CommandHandlers\UserHandlers\DeleteUserHandle.cs" />
+    <Compile Include="CommandHandlers\UserHandlers\UpdateUserHandle.cs" />
+    <Compile Include="Commands\AdCommands\CreateAdCommand.cs" />
+    <Compile Include="Commands\AdCommands\DeleteAdCommand.cs" />
+    <Compile Include="Commands\AdCommands\UpdateAdCommand.cs" />
+    <Compile Include="Commands\ArticleCommands\Base\BaseCreateArticleMessageCommand.cs" />
+    <Compile Include="Commands\ArticleCommands\CreateArticleCommand.cs" />
+    <Compile Include="Commands\ArticleCommands\CreateArticleMessageCommand.cs" />
+    <Compile Include="Commands\ArticleCommands\CreateArticleMessageReplyCommand.cs" />
+    <Compile Include="Commands\ArticleCommands\DeleteArticleCommand.cs" />
+    <Compile Include="Commands\ArticleCommands\DeleteArticleMessageCommand.cs" />
+    <Compile Include="Commands\ArticleCommands\UpdateArticleCommand.cs" />
+    <Compile Include="Commands\ArticleTagCommands\CreateArticleTagCommand.cs" />
+    <Compile Include="Commands\ArticleTagCommands\DeleteArticleTagCommand.cs" />
+    <Compile Include="Commands\ArticleTagCommands\UpdateArticleTagCommand.cs" />
+    <Compile Include="Commands\ArticleTypeCommands\CreateArticleTypeCommand.cs" />
+    <Compile Include="Commands\ArticleTypeCommands\DeleteArticleTypeCommand.cs" />
+    <Compile Include="Commands\ArticleTypeCommands\UpdateArticleTypeCommand.cs" />
+    <Compile Include="Commands\LinkCommands\CreateLinkCommand.cs" />
+    <Compile Include="Commands\LinkCommands\DeleteLinkCommand.cs" />
+    <Compile Include="Commands\LinkCommands\UpdateLinkCommand.cs" />
+    <Compile Include="Commands\LinkTypeCommands\CreateLinkTypeCommand.cs" />
+    <Compile Include="Commands\LinkTypeCommands\DeleteLinkTypeCommand.cs" />
+    <Compile Include="Commands\LinkTypeCommands\UpdateLinkTypeCommand.cs" />
+    <Compile Include="Commands\ProductCommands\CreateProductCommand.cs" />
+    <Compile Include="Commands\ProductCommands\UpdateProductCommand.cs" />
+    <Compile Include="Commands\ProjectCommands\DeleteProjectCommand.cs" />
+    <Compile Include="Commands\ProjectTypeCommands\CreateProjectTypeCommand.cs" />
+    <Compile Include="Commands\ProjectTypeCommands\DeleteProjectTypeCommand.cs" />
+    <Compile Include="Commands\ProjectTypeCommands\UpdateProjectTypeCommand.cs" />
+    <Compile Include="Commands\ProjectCommands\CreateProjectCommand.cs" />
+    <Compile Include="Commands\ProjectCommands\UpdateProjectCommand.cs" />
+    <Compile Include="Commands\UserCommands\CreateUserCommand.cs" />
+    <Compile Include="Commands\UserCommands\DeleteUserCommand.cs" />
+    <Compile Include="Commands\UserCommands\UpdateUserCommand.cs" />
+    <Compile Include="Commands\UserTourLogCommands\CreateUserTourLogCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserFileTask.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cotide.Core\Cotide.Domain.csproj">
+      <Project>{15DCFE96-8133-44F2-A834-3394E836FD67}</Project>
+      <Name>Cotide.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Framework\Cotide.Framework.csproj">
+      <Project>{E63FCEE6-1AE3-4450-ABD1-AC62B402DFEC}</Project>
+      <Name>Cotide.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="CommandHandlers\ProjectHandlers\UpdateProjectHandle.cs" />
+    <None Include="Diagram\Commands\CreateArticleMessageCommand.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

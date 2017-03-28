@@ -1,0 +1,334 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0px;
+	padding:0px;
+	/*background:url(images/main_02.jpg) repeat-x top;*/ font-size:14px; font-family:"宋体", "黑体";}
+* {
+border: 0;font-size: 14px;
+}
+a{ text-decoration:none;   color: #000;}
+ul, ol, li {
+list-style: none;
+}
+body, div, p, ul, ol, li, dl, dt, dd, form, h1, h2, h3, h4, h5, h6 {
+margin: 0;
+padding: 0;
+}
+/* UI/start */
+.goto {
+border: #DDD 1px solid;
+font-size: 12px;
+padding: 5px;
+cursor: pointer;
+resize: none;
+color: #A7A7A7;
+display: block;
+}
+/* UI/end */
+
+#warp{ width:960px; margin:auto;}
+.top{ /*background:url(images/main_02.jpg) repeat-x top;*/width:960px; height:89px; margin:10px 0px; border-bottom: 1px solid #088738;}
+#logo,#menu,#reg{ float:left}
+#menu{ width:760px; position:relative; left:20px; top:35px;}
+#menu ul{float: right;}
+#menu li{float:left; margin-left:20px; list-style-type:none; text-align:center;}
+#menu li a{font-size: 16px;color:#000; }
+#menu li a:link { display:block;height:24px; line-height:24px; }	
+#menu .sel{ color:#088738;font-weight: bold;}	 
+/*#menu li a:hover {color: #fff; background:url(../images/main_07.jpg) no-repeat top; color:#FFF;} */
+#reg{ margin-left:50px; margin-top:30px;}
+#reg li{ display:block; float:left; margin-left:30px; width:49px; height:24px;  background:url(../images/main_11.jpg) no-repeat; text-align:center; }
+#reg li a{ color:#FFF; text-align:center;  list-style-type:none;line-height:24px; }
+
+.box{box-shadow: -1px 1px 8px #CBCBCD;}
+.pic_show{ width:960px; text-align:center; padding:10px 0; margin-top:10px;}
+.shi{ width:960px; margin-top:15px;}
+.shi_tit{ background:#eee; height:45px;border-bottom: 1px solid #088738;}
+.shi_titpic,.shi_titfont { float:left;}
+.shi_titfont{   margin:15px 25px 0px 0px; text-align:left;}
+.shi_titfont li{ font-size:16px;font-weight:normal; margin-left:20px; float:left; list-style-type:none;  height:24px;}
+.shi_titfont .sel{color:#088738;font-weight: bold; }
+.shi li a{ color:#666; }
+.shi li a:link { /*display:block; color:#666; */text-align:center; }		
+/*.shi li a:visited { color:#666;}*/	
+.shi li a:hover { color:#E88F0C;}
+
+.zui_tit{ background:#fff; height:45px;border-bottom: 1px solid #088738;}
+
+/* 列表内容 */
+.post_list ul {
+border-bottom: 1px solid #CECECE;
+overflow: hidden;
+}
+
+.post_item {
+height:140px;
+padding: 20px 0 10px 20px;
+background: none;
+}
+.post_item {
+margin-top: -1px;
+border-top: 1px dashed #CECECE;
+color: #666;
+}
+
+.post_item .pic {
+display: inline;
+float: left; 
+height: 125px;
+position: relative;
+padding-right:10px;
+}
+.post_item .author img {
+float: left;
+margin: 1px 5px 0 0;
+}
+.post_item .pic a { 
+width: 195px;
+height: 125px;
+overflow: hidden;
+}
+
+.post_item .pic img {
+	border: 1px solid #CECECE;
+padding: 3px;
+vertical-align: middle;
+}
+ 
+
+.post_item dd {
+width: 580px;
+float: left; 
+padding: 0px;
+_overflow: hidden;
+}
+
+.post_item h2 {
+height: 25px;
+margin-bottom: 5px;
+font-size: 16px;
+overflow: hidden;
+font-weight: normal;
+}
+.post_item h2 a {
+
+font-weight: bold;
+font-size: 20px;
+color:#088738;
+}
+
+.post_item dl {
+margin-left: 210px;
+width:720px
+_margin-left: 205px;
+}
+
+.post_item dt {
+float: right;
+width: 130px;
+_width: 120px;
+}
+.post_item .like { 
+margin: 60px 25px 0 40px;
+text-align: center;
+color: #FA0;
+font-size: 14px;
+}
+.cf {
+zoom: 1;
+}
+.cf::after {
+/*content: ' 20';*/
+clear: both;
+display: block;
+}
+.post_item .author {
+height: 22px;
+position: relative;
+width: 500px;
+float: none;
+font-size: 12px;
+}
+
+.post_item .author p {
+float: left;
+height: 20px;
+overflow: hidden;
+}
+.post_item .authorA {
+width: 150px;
+} 
+.post_item .authorB {
+position: absolute;
+left: 150px;
+top: 0;
+width: 300px;
+}
+.post_item .post_info {
+padding-top: 10px;
+float: none;
+width: auto;
+font-size: 14px;
+line-height: 22px;
+}
+
+
+#waterfall {
+position: relative;
+min-height: 500px;
+margin: 10px auto 0;
+}
+.main2 {
+	width: 200px;
+border: 1px solid #CECECE;
+background-color: white;
+float: left;
+ height: 400px; 
+margin: 10px 5px 10px 22px;
+padding: 3px;
+position: relative; 
+}
+.main2_part2 { 
+	text-align: center;
+color: black;
+font-size: 14px;
+height: 38px;
+line-height: 38px;
+overflow: hidden;
+color: #666;
+}
+.main2_content{ 
+	color: #666;
+	text-indent:1em;
+   font-size: 12px; 
+   line-height: 18px;
+   margin: 0px 0px 0px 5px; 
+}
+.posted {
+background-color: #F7F7F7;
+border-top: 1px solid #DDD;
+clear: both; 
+font-size: 11px;
+font-style: normal;
+font-weight: normal;
+line-height: 15px;
+margin-top: 10px;
+padding: 5px;
+text-align: left;
+height: 14px;\
+}
+.readLink {
+float: right;
+font-weight: bold;
+color: #088738;
+}
+
+/* 顶部导航 */
+#miniNav {
+background: none repeat scroll 0 0 #F8F8F8;
+border-bottom: 1px solid #E6E6E6;
+color: #A1A0A0;
+height: 22px;
+line-height: 20px;
+text-align: center;
+}
+#miniNav a {
+color: #A1A0A0;
+display: block;
+float: right;
+font-size: 12px;
+margin: 0 3px;
+padding: 1px 3px;
+text-decoration: none;
+}
+#miniNav span {
+display: block;
+float: right;
+}
+#content {
+margin-top: 25px;
+width: 100%;
+height: auto !important;
+height: 100px;
+min-height: 100px;
+overflow: visible;
+}
+.contentBorderTitle { 
+width: 100%;
+height: 30px;
+font-size: 20px;
+font-weight: bold;
+line-height: 28px;
+}
+.contentBorderDetial { 
+margin-top: 15px;
+width: 100%;
+line-height: 25px;
+font-size: 14px;
+height: auto !important;
+height: 20px;
+min-height: 20px; 
+}
+
+#leftContent{float: right;
+width: 190px;
+height: 366px;
+}
+
+#leftContent .classify{
+background-color: #A1A0A0;
+color: white;
+height: 20px;
+padding: 10px 0px 5px 15px;
+} 
+#leftContent   ul li {
+ padding:10px 0px 0px 15px;
+float: left;
+width: 220px;
+line-height: 26px;
+border-bottom: 1px dotted #DDD;
+color: #777;
+font-size: 14px;
+}
+
+#rightContent{float:left;width: 750px;}
+/* 分页 */
+.blueFoot {
+color: #999;
+line-height: 37px;
+padding-right: 5px;
+text-align: right;
+height: 40px;
+}
+#pageNav a, #pageNav strong, #pageNav span, .pageNav a, .pageNav strong, .pageNav span {
+background: none repeat scroll 0 0 white;
+text-decoration: none;
+border: 1px solid #D6D6D6;
+display: inline-block;
+line-height: 1.231;
+margin: 7px 3px 0;
+overflow: hidden;
+padding: 3px 7px;
+vertical-align: middle;
+}
+
+.backToTop {
+display: none;
+width: 18px;
+line-height: 1.2;
+padding: 5px 0;
+background-color: #666;
+color: white;
+font-size: 12px;
+text-align: center;
+position: fixed;
+_position: absolute;
+right: 10px;
+bottom: 60px;
+_bottom: "auto";
+cursor: pointer;
+opacity: .6;
+filter: Alpha(opacity=60);
+}

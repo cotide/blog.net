@@ -1,0 +1,18 @@
+﻿@model IList<Cotide.Web.Controllers.Blog.ViewModel.ArticleTypeViewModel>
+<div class="row">
+   <ul class="nav nav-pills nav-stacked ">
+                    <li class="active">
+                        <a href="#">
+                            <span class="badge pull-right"><span class="glyphicon glyphicon-th"></span></span>
+                            分类
+                        </a>
+                    </li>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <li><a href="@Url.Action("ArticleType", "Blog", new {@id = item.TypeId})" title="@item.TypeName"> @item.TypeName   </a></li>
+                        }
+                    }  
+  </ul>
+</div>

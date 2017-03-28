@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "UpdateLink";
+    Layout = "~/Views/Shared/_DialogLayout.cshtml";
+} 
+@model Cotide.Web.Controllers.BlogManager.ViewModel.LinkType.UpdateLinkTypeModel
+@Html.StyleSheet("validate/pagevalidator.css")
+@Html.JavaScript("validate/pagevalidator_v2.js")
+  
+
+<div class="container-fluid">
+     @using (Html.BeginForm("UpdateLinkType", "BlogManager", FormMethod.Post, new
+     {
+         @Id = "login-form" 
+     }))
+     {  
+          
+    <div class="panel panel-default">
+        <p>
+            @Html.ValidationExSummary("login-form")
+        </p>
+         
+        <div class="panel-body">
+            <fieldset>
+                <div class="tab-pane active" id="input">
+                    <div class="component">
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">     链接类型名称 ：</label>
+                            <div class="col-md-10">
+                                <span class="help-block">
+                                                                      
+                                   @Html.TextBoxExFor(x => x.TypeName, new
+                                      {
+                                         @class = "form-control",
+                                         @title = "链接类型名称",
+                                         @maxlength = "30",
+                                         @placeholder = "请输入链接类型名称(必填)"
+                                     }, new ValidateOption()
+                                     {
+                                         EmptyMsg = "您还没输入链接类型名称",
+                                         Description =
+                                             "链接类型名称格式:1-30位字符",
+                                         Min = 1,
+                                         Max = 30,
+                                         RangeMsg = "请确保链接类型名称在1-30位字符内"
+                                     })  
+                                    @Html.ValidationMessageExFor(x => x.TypeName)
+                                    @Html.HiddenFor(x => x.Id) 
+                                </span>
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">     排序 ：</label>
+                            <div class="col-md-10">
+                                <span class="help-block">
+                                    @Html.TextBoxExFor(x => x.Sort, new
+                                      {
+                                          @class = "form-control",
+                                          @title = "排序",
+                                          @maxlength = "30", 
+                                      }, new ValidateOption()
+                                     {
+                                        
+                                        IsEmpty =true,
+                                        Regex= @"/^[0-9]\d*$/"
+                                     })
+                                    @Html.ValidationMessageExFor(x => x.Sort) 
+                                </span>
+                            </div> 
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">  &nbsp;</label>
+                            <div class="col-md-10">
+                                <span class="help-block">
+                                    <button type="submit" class="btn btn-primary"> 保存 </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+         
+         
+     } 

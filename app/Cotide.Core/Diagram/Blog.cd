@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="文章">
+    <Position X="4.26" Y="0.865" Height="0.333" Width="0.7" />
+  </Comment>
+  <Comment CommentText="文章标签">
+    <Position X="6.646" Y="0.875" Height="0.333" Width="0.773" />
+  </Comment>
+  <Comment CommentText="文章类型">
+    <Position X="4.479" Y="5.646" Height="0.333" Width="0.773" />
+  </Comment>
+  <Comment CommentText="用户">
+    <Position X="1.542" Y="0.854" Height="0.29" Width="0.7" />
+  </Comment>
+  <Class Name="Cotide.Domain.User">
+    <Position X="0.75" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAhAAACIAChQAgABIKAIABAUAgAAAEgAAQkBIAAAgIM=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cotide.Domain.Article">
+    <Position X="3.75" Y="1.5" Width="1.5" />
+    <AssociationLine Name="ArticleType" Type="Cotide.Domain.ArticleType">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.516" Y="0.227" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAABQAAAAgIAEEAAAIAAIBAQAAAAAACAAAABAAAABAA=</HashCode>
+      <FileName>Entity\Blog\Article.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ArticleType" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ArticleTags" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cotide.Domain.ArticleTag">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAACAA=</HashCode>
+      <FileName>Entity\Blog\ArticleTag.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Articles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Cotide.Domain.ArticleType">
+    <Position X="4.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Blog\ArticleType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Articles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

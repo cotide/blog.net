@@ -1,0 +1,43 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class xmlns="urn:nhibernate-mapping-2.2" name="Cotide.Domain.Ad, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="Blog_Ads">
+    <id name="Id" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" unsaved-value="0">
+      <column name="AdId" />
+      <generator class="hilo">
+        <param name="where">table_name = 'Blog_Ads'</param>
+        <param name="table">Blog_hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">0</param>
+      </generator>
+    </id>
+    <property name="AdName" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="AdName" length="50" />
+    </property>
+    <property name="AdDesc" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="AdDesc" length="100" />
+    </property>
+    <property name="AdImg" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="AdImg" length="200" />
+    </property>
+    <property name="StandardAdImg" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="StandardAdImg" length="200" />
+    </property>
+    <property name="SmallAdImg" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="SmallAdImg" length="200" />
+    </property>
+    <property name="AdType" type="Cotide.Domain.Enum.AdType, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <column name="AdType" />
+    </property>
+    <property name="IsShow" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="IsShow" />
+    </property>
+    <property name="Sort" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Sort" />
+    </property>
+    <property name="CreateDate" type="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="CreateDate" />
+    </property>
+    <property name="LastDateTime" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LastDateTime" />
+    </property>
+  </class>
+</hibernate-mapping>

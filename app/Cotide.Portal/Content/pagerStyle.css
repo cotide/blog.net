@@ -1,0 +1,26 @@
+/* ·ÖÒ³ÑùÊ½ */
+
+.pageNav {
+    color: #333333;
+    line-height: 37px;
+    padding-right: 5px;
+    text-align: left; padding-top:20px;
+} 
+    .pageNav a, .pageNav strong, #pageNav span, .pageNav a, .pageNav strong, .pageNav span {
+        background: none repeat scroll 0 0 #333333;
+        text-decoration: none;
+        border: 1px solid #000;
+        display: inline-block;
+        line-height: 1.231;
+        margin: 7px 3px 0;
+        overflow: hidden;
+        padding: 6px 10px;
+        vertical-align: middle;
+        color: #fff;
+    }
+
+    .pageNav strong, .pageNav strong {
+        background: none repeat scroll 0 0 transparent;
+        border: 0 none;
+        color: #a3163c;
+    }

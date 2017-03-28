@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = Html.Raw("收藏的网址 - " + TempData["BlogName"]);
+    ViewBag.Keywords = @Html.Raw("开发者,程序员,编程,代码,极客,Programmer,Coder,Code,Coding,个人博客,IT学习");
+    ViewBag.Description = @Html.Raw("李小潮'Blog ");
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+} 
+@using Cotide.Domain.Dtos
+@model IList<Cotide.Web.Controllers.Blog.ViewModel.LinkViewModel>
+@{
+      var linkTypeId = ViewData["linkTypeId"] is int ? (int) ViewData["linkTypeId"] : 0; 
+      var linkType = ViewData["linkType"] as List<LinkTypeDto>;
+   }
+    <style type="text/css">
+        #link .nav-tabs > li.active > a,
+        #link .nav-tabs > li.active > a:hover,
+        #link .nav-tabs > li.active > a:focus {
+            color: #555555;
+            cursor: default;
+            background-color: #ffffff;
+            border: 1px solid #a3163c;
+            border-bottom-color: transparent;
+        }
+
+        #link .nav-tabs {
+            border-bottom: 1px solid #a3163c;
+        }
+
+        #link .nav > li > a:hover,
+        #link .nav > li > a:focus {
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+
+        #link .linkPanel a {
+            padding: 8px;
+        }
+    </style>
+
+    <div id="link" class="row">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="bs-example">
+                    <ul class="nav nav-tabs">
+                        @foreach (var i in linkType)
+                        { 
+                            <li @(i.Id == linkTypeId?"class=active":"")><a href="@Url.Action("Link","Blog",new{@id= @i.Id})">@i.TypeName</a></li>
+                        } 
+                    </ul> 
+                </div>
+            </div>
+            <div class="linkPanel panel-body">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-xs-6 col-md-3" style="padding:5px 5px 5px 10px;">
+                          <a href="@item.LinkUrl" target="_blank"> @item.LinkTxt </a>
+                    </div>
+                    } 
+                </div>
+
+            </div>
+        </div>
+    </div>
+

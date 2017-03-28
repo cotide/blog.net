@@ -1,0 +1,18 @@
+﻿@model IList<Cotide.Web.Controllers.Blog.ViewModel.ArticleDateViewModel>
+<div class="row">
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active">
+            <a href="#">
+                <span class="badge pull-right"><span class="glyphicon glyphicon-book"></span></span>
+                档案
+            </a>
+        </li>
+        @if (Model != null && Model.Count > 0)
+        {
+                foreach (var item in Model)
+                {
+                    <li><a href="@Url.Action("Articles", "Blog", new { @year = item.Year, @mouth=item.Mouth})"> @item.Year  @item.Mouth 月 ( @item.Count ) </a></li> 
+                }
+        } 
+    </ul>
+</div>

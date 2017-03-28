@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="17d65e42-2aa0-43ff-a0bb-f89aaa616863" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="76e0733b-af29-4025-a21b-9befef9bcc01" name="Comment1">
+      <body>绿色：表示表示层，用于显示或接收数据。
+蓝色：表示业务层，用于处理业务逻辑和数据读取
+玫瑰红色：表示领域实体，业务用例实现的对象模型。
+灰色：表示基础设施层， Nhibernate抽象层.领域实体的Map映射配置。
+粉红色：表示Nhibernate ORM 框架。
+咖啡色：表示数据库实例
+金色：表示辅助层。
+红色：表示辅助工具</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="a95916dc-5b47-4669-b37a-adfd5214859d" name="领域实体&#xD;&#xA;(Cotide.Domain)">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="269a4e76-a8b7-47a9-ad48-7a303b7f0d11" direction="Forward">
+          <layerMoniker Id="eb33f899-5907-44d0-83c3-3d992f81eafe" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="c9ac7bec-7844-4bf0-a5ba-de9d60d19524" name="Cotide.Domain">
+          <ArtifactNode Label="Cotide.Domain" Category="CodeSchema_Project" Id="(Assembly=../Cotide.Core/Cotide.Domain.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.Domain)" Label="Cotide.Domain.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="e5cdc096-83e2-49bf-b496-d280ff8dc91b" name="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;基础设施层(Cotide.Infrastructure)">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="1a10b92e-537f-428c-833f-c86ee2173d0a" direction="Bidirectional">
+          <layerMoniker Id="0ce9eea2-3a10-4fc7-a3d2-2037e9375842" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="f63744b8-fe9d-43cb-b848-238640964a06" direction="Bidirectional">
+          <layerMoniker Id="a95916dc-5b47-4669-b37a-adfd5214859d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="bf193c0c-a0f2-4612-bcdc-8e7ac7a12a33" name="基础设施层接口" />
+        <layer Id="e67d77c0-90da-4bf9-924e-1182b9121be4" name="Nhibernate Map&#xD;&#xA;（FluentNHibernate）" />
+      </childLayers>
+      <references>
+        <reference Id="be9d5deb-e4ff-4dba-84f3-b33067ec2645" name="Cotide.Infrastructure">
+          <ArtifactNode Label="Cotide.Infrastructure" Category="CodeSchema_Project" Id="(Assembly=../Cotide.Data/Cotide.Infrastructure.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.Infrastructure)" Label="Cotide.Infrastructure.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="1a16af97-d500-4951-be7b-ca7db2f8f3d3" name="公共类库层(Cotide.Framework)">
+      <references>
+        <reference Id="e459fdb9-7781-494e-b801-3865809a58f1" name="Cotide.Framework">
+          <ArtifactNode Label="Cotide.Framework" Category="CodeSchema_Project" Id="(Assembly=../Cotide.Framework/Cotide.Framework.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.Framework)" Label="Cotide.Framework.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="eb33f899-5907-44d0-83c3-3d992f81eafe" name="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;查询服务层&#xD;&#xA;（Cotide.QueryServices）">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="253490fa-51a1-42f1-a08c-f272e7f01a32" direction="Forward">
+          <layerMoniker Id="4390f0b0-9e2f-46bb-9d88-cb79d4184999" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7838810a-8b4e-48a7-b3c0-4f8f9886c1dd" direction="Forward">
+          <layerMoniker Id="bf193c0c-a0f2-4612-bcdc-8e7ac7a12a33" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="53b9cec8-17e0-4a11-8b22-e6cbdc00308d" name="查询服务层接口" />
+      </childLayers>
+      <references>
+        <reference Id="58bc9b44-879a-421e-9767-6b1456797df1" name="Cotide.QueryServices">
+          <ArtifactNode Label="Cotide.QueryServices" Category="CodeSchema_Project" Id="(Assembly=../Cotide.QueryServices/Cotide.QueryServices.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.QueryServices)" Label="Cotide.QueryServices.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="509ffb8b-00f6-4a70-82db-3dfa6cea667e" name="持久化服务层(Cotide.Tasks)">
+      <childLayers>
+        <layer Id="d3d6da6c-9927-4b20-bfbc-1420ba269d73" name="CommandHandlers 命令执行对象">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="7612b58a-911a-4ace-9e66-75ba106026b9" direction="Bidirectional">
+              <layerMoniker Id="bf193c0c-a0f2-4612-bcdc-8e7ac7a12a33" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="7922034f-36c3-4c7e-8ae4-dbf304e5963c" direction="Bidirectional">
+              <layerMoniker Id="a95916dc-5b47-4669-b37a-adfd5214859d" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="d9035fe1-907e-4c1c-8c06-e438976f15f3" name="Commands 命令对象" />
+          </childLayers>
+        </layer>
+        <layer Id="21ef04ef-1c8d-4530-ab41-dddc9ab7df84" name="持久化服务层接口" />
+      </childLayers>
+      <references>
+        <reference Id="a59a3bc5-535a-475d-9e72-93aea1aa72b7" name="Cotide.Tasks">
+          <ArtifactNode Label="Cotide.Tasks" Category="CodeSchema_Project" Id="(Assembly=../Cotide.ApplicationServices/Cotide.Tasks.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.Tasks)" Label="Cotide.Tasks.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="da1af1f6-fd14-43cc-95fe-0cae7d2c3111" name="单元测试层&#xD;&#xA;(Cotide.Tests)">
+      <references>
+        <reference Id="f1a38ae3-0fb3-4ed6-a003-10fca73de1e0" name="Cotide.Tests">
+          <ArtifactNode Label="Cotide.Tests" Category="CodeSchema_Project" Id="(Assembly=../../tests/Cotide.Tests/Cotide.Tests.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.Tests)" Label="Cotide.Tests.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="444a3f92-8da2-4572-b66f-57804681f534" name="Web表示层(Cotide.Portal)">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="ff0c47d3-de22-4761-a212-627d3a1c4544" direction="Bidirectional">
+          <layerMoniker Id="b9cb5977-537b-46ee-b99f-f96330809043" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="9926053c-db70-408d-8fa6-5ae76e46ea85" name="Web" />
+      </childLayers>
+      <references>
+        <reference Id="0946bb27-3502-4687-851f-ef61e8b0a19f" name="Cotide.Portal">
+          <ArtifactNode Label="Cotide.Portal" Category="CodeSchema_Project" Id="(Assembly=../Cotide.Portal/Cotide.Portal.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.Portal)" Label="Cotide.Portal.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="a97a2fc4-663d-4d41-a4c0-2358b508a08e" name="表示层后台控制层(Cotide.Web.Controllers)">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="152f6fe0-c9d5-4890-b997-465f36183d55" direction="Bidirectional">
+          <layerMoniker Id="444a3f92-8da2-4572-b66f-57804681f534" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="1b1b37c5-071a-4c5c-b42d-70431b928fef" direction="Bidirectional">
+          <layerMoniker Id="b9cb5977-537b-46ee-b99f-f96330809043" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="ca79c456-3777-498f-9c7c-2daac56ff32e" direction="Bidirectional">
+          <layerMoniker Id="21ef04ef-1c8d-4530-ab41-dddc9ab7df84" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="e0200b47-2933-43f7-b20d-a7e5cdbb10bb" direction="Forward">
+          <layerMoniker Id="53b9cec8-17e0-4a11-8b22-e6cbdc00308d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="8c65fcee-df74-475a-83e8-fa1d255caeb7" name="Cotide.Web.Controllers">
+          <ArtifactNode Label="Cotide.Web.Controllers" Category="CodeSchema_Project" Id="(Assembly=../Cotide.Web.Controllers/Cotide.Web.Controllers.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Cotide.Web.Controllers)" Label="Cotide.Web.Controllers.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="0ce9eea2-3a10-4fc7-a3d2-2037e9375842" name="持久化ORM&#xD;&#xA;(NHibernate)">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="e5025b44-f15b-4e96-969a-a2e65507ab75" direction="Bidirectional">
+          <layerMoniker Id="e67d77c0-90da-4bf9-924e-1182b9121be4" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7b6e54ff-b1ea-4f30-ac99-a13b0d20acb9" direction="Bidirectional">
+          <layerMoniker Id="805f31ff-09da-4da0-8544-8e3914df1dc5" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="b9cb5977-537b-46ee-b99f-f96330809043" name="视图 (ViewModel)" />
+    <layer Id="805f31ff-09da-4da0-8544-8e3914df1dc5" name="数据库实例">
+      <childLayers>
+        <layer Id="e7e5b09e-791b-4378-afb7-2d901bcab32a" name="SQL Server DB" />
+        <layer Id="53ab5a1c-e523-4fbc-bf3d-52282d42379c" name="MySql DB" />
+        <layer Id="bcb1af63-d079-450c-a850-0ca2ca9acdfd" name="Oracle DB" />
+        <layer Id="efe6e1df-ed98-44e7-9ea6-c86d2ecd14e2" name="Other DB" />
+      </childLayers>
+    </layer>
+    <layer Id="4390f0b0-9e2f-46bb-9d88-cb79d4184999" name="Dto实体&#xD;&#xA;(用于隔离领域实体)">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="8a03f41b-365a-4bd0-9ce6-e9d55b876d14" direction="Forward">
+          <layerMoniker Id="a97a2fc4-663d-4d41-a4c0-2358b508a08e" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="5fdf185d-2be9-4229-ad58-6d3337b63c8a" name="T4代码生成工具" />
+    <layer Id="354c75df-3102-43b3-a3ca-8d7fa642a3e8" name="RazorGenerator&#xD;&#xA;(View预编译)工具" />
+    <layer Id="d327c74c-7db3-450f-8a74-63a524d16972" name="数据库字段生成工具" />
+  </layers>
+</layerModel>

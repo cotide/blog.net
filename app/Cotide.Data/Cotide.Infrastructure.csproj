@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{635E1119-FE18-4B41-B060-8438FACF64B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cotide.Infrastructure</RootNamespace>
+    <AssemblyName>Cotide.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.2.0.694, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Inflector.Net, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Inflector.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON">
+      <HintPath>..\..\lib\KindEditor\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\SharpArch.2.0.2\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.NHibernate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="NHibernateMaps\AdMap.cs" />
+    <Compile Include="NHibernateMaps\ArticleMap.cs" />
+    <Compile Include="NHibernateMaps\ArticleMessageMap.cs" />
+    <Compile Include="NHibernateMaps\ArticleTagMap.cs" />
+    <Compile Include="NHibernateMaps\ArticleTypeMap.cs" />
+    <Compile Include="NHibernateMaps\Conventions\AutomappingConfiguration.cs" />
+    <Compile Include="NHibernateMaps\Conventions\AutoPersistenceModelGenerator.cs" />
+    <Compile Include="NHibernateMaps\Conventions\MapConst.cs" />
+    <Compile Include="NHibernateMaps\LinkMap.cs" />
+    <Compile Include="NHibernateMaps\LinkTypeMap.cs" />
+    <Compile Include="NHibernateMaps\ProjectMap.cs" />
+    <Compile Include="NHibernateMaps\ProjectTypeMap.cs" />
+    <Compile Include="NHibernateMaps\UserMap.cs" />
+    <Compile Include="NHibernateMaps\UserTourLogMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Base\AdRepository.cs" />
+    <Compile Include="Repositories\Base\ArticleMessageRepository.cs" />
+    <Compile Include="Repositories\Base\ArticleRepository.cs" />
+    <Compile Include="Repositories\Base\ArticleTagRepository.cs" />
+    <Compile Include="Repositories\Base\ArticleTypeRepository.cs" />
+    <Compile Include="Repositories\Base\LinkRepository.cs" />
+    <Compile Include="Repositories\Base\LinkTypeRepository.cs" />
+    <Compile Include="Repositories\Base\ProjectRepository.cs" />
+    <Compile Include="Repositories\Base\ProjectTypeRepository.cs" />
+    <Compile Include="Repositories\Base\UserRepository.cs" />
+    <Compile Include="Repositories\Base\UserTourLogRepository.cs" />
+    <Compile Include="Repositories\Extension\DbExProxyRepository.cs.cs" />
+    <Compile Include="Repositories\Extension\DbExProxyRepositoryWithTypedId.cs" />
+    <Compile Include="Repositories\Extension\DbProxyRepository.cs" />
+    <Compile Include="Repositories\Extension\DbProxyRepositoryWithTypedId.cs" />
+    <Compile Include="Repositories\OutPut.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OutPut.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service\IdentityService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cotide.Core\Cotide.Domain.csproj">
+      <Project>{15DCFE96-8133-44F2-A834-3394E836FD67}</Project>
+      <Name>Cotide.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Framework\Cotide.Framework.csproj">
+      <Project>{E63FCEE6-1AE3-4450-ABD1-AC62B402DFEC}</Project>
+      <Name>Cotide.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NHibernateMaps\Conventions\ForeignKeyConvention.cs" />
+    <Compile Include="NHibernateMaps\Conventions\HasManyConvention.cs" />
+    <Compile Include="NHibernateMaps\Conventions\HasManyToManyConvention.cs" />
+    <Compile Include="NHibernateMaps\Conventions\ManyToManyTableNameConvention.cs" />
+    <Compile Include="NHibernateMaps\Conventions\PrimaryKeyConvention.cs" />
+    <Compile Include="NHibernateMaps\Conventions\ReferenceConvention.cs" />
+    <Compile Include="NHibernateMaps\Conventions\TableNameConvention.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Repositories\Extension\IRepository.cd" />
+    <None Include="Repositories\OutPut.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OutPut.cs</LastGenOutput>
+      <LastOutputs>
+.\Base\AdRepository.cs
+.\Base\ArticleMessageRepository.cs
+.\Base\ArticleRepository.cs
+.\Base\ArticleTagRepository.cs
+.\Base\ArticleTypeRepository.cs
+.\Base\LinkRepository.cs
+.\Base\LinkTypeRepository.cs
+.\Base\ProjectRepository.cs
+.\Base\ProjectTypeRepository.cs
+.\Base\UserRepository.cs
+.\Base\UserTourLogRepository.cs
+.\OutPut.cs
+</LastOutputs>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77BC30FC-8CAE-4BC1-B22A-FDAB77E5540D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cotide.Web.Controllers</RootNamespace>
+    <AssemblyName>Cotide.Web.Controllers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\KindEditor\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.NHibernate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.2.0.2\SharpArch.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlogManager\BlogManagerController.cs" />
+    <Compile Include="BlogManager\ViewModel\AddArticleModel.cs" />
+    <Compile Include="BlogManager\ViewModel\AddNoticesModel.cs" />
+    <Compile Include="BlogManager\ViewModel\AddProjectModel.cs" />
+    <Compile Include="BlogManager\ViewModel\AddSinglePageModel.cs" />
+    <Compile Include="BlogManager\ViewModel\Ad\AdViewModel.cs" />
+    <Compile Include="BlogManager\ViewModel\Ad\CreateAdViewModel.cs" />
+    <Compile Include="BlogManager\ViewModel\Ad\UpdateAdViewModel.cs" />
+    <Compile Include="BlogManager\ViewModel\ArticleModel.cs" />
+    <Compile Include="BlogManager\ViewModel\ArticleTagModel.cs" />
+    <Compile Include="BlogManager\ViewModel\ArticleTypeModel.cs" />
+    <Compile Include="BlogManager\ViewModel\LinkModel.cs" />
+    <Compile Include="BlogManager\ViewModel\LinkType\UpdateLinkTypeModel.cs" />
+    <Compile Include="BlogManager\ViewModel\Link\LinkTypeModel.cs" />
+    <Compile Include="BlogManager\ViewModel\MenuJson.cs" />
+    <Compile Include="BlogManager\ViewModel\NoticesModel.cs" />
+    <Compile Include="BlogManager\ViewModel\ProjectModel.cs" />
+    <Compile Include="BlogManager\ViewModel\ProjectTypeModel.cs" />
+    <Compile Include="BlogManager\ViewModel\SinglePageModel.cs" />
+    <Compile Include="BlogManager\ViewModel\UpdateArticleModel.cs" />
+    <Compile Include="BlogManager\ViewModel\UpdateLinkModel.cs" />
+    <Compile Include="BlogManager\ViewModel\UpdateNoticesModel.cs" />
+    <Compile Include="BlogManager\ViewModel\UpdateProjectModel.cs" />
+    <Compile Include="BlogManager\ViewModel\UpdateProjectTypeModel.cs" />
+    <Compile Include="BlogManager\ViewModel\UpdateSinglePageModel.cs" />
+    <Compile Include="BlogManager\ViewModel\UserAccountModel.cs" />
+    <Compile Include="Blog\BlogController.cs" />
+    <Compile Include="Blog\ViewModel\ArticleDateViewModel.cs" />
+    <Compile Include="Blog\ViewModel\ArticleTypeViewModel.cs" />
+    <Compile Include="Blog\ViewModel\ArticleViewModel.cs" />
+    <Compile Include="Blog\ViewModel\Article\ArticleCommentReplyViewModel.cs" />
+    <Compile Include="Blog\ViewModel\Article\ArticleCommentViewModel.cs" />
+    <Compile Include="Blog\ViewModel\Article\ArticleReplyCommentViewModel.cs" />
+    <Compile Include="Blog\ViewModel\Article\SaveMessageReplyViewModel.cs" />
+    <Compile Include="Blog\ViewModel\Article\SaveMessageViewModel.cs" />
+    <Compile Include="Blog\ViewModel\Article\TagerUserArticleMessageViewModel.cs" />
+    <Compile Include="Blog\ViewModel\Article\UserArticleMessageViewModel.cs" />
+    <Compile Include="Blog\ViewModel\HistoryArticleViewModel.cs" />
+    <Compile Include="Blog\ViewModel\HomeArticleCommentViewModel.cs" />
+    <Compile Include="Blog\ViewModel\IndexArticleTagViewModel.cs" />
+    <Compile Include="Blog\ViewModel\LinkViewModel.cs" />
+    <Compile Include="Blog\ViewModel\ProjectViewModel.cs" />
+    <Compile Include="Blog\ViewModel\UserTourLog\UserTourLogViewModel.cs" />
+    <Compile Include="Blog\ViewModel\ZupPinViewModel.cs" />
+    <Compile Include="Error\ErrorController.cs" />
+    <Compile Include="Reg\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Utility\Attr\ActionPowerAttribute.cs" />
+    <Compile Include="Utility\Attr\UserPowerAttribute.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\DialogResultViewModel.cs" />
+    <Compile Include="Common\CommonController.cs" />
+    <Compile Include="Common\ViewModel\AjaxViewModel.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="FileMamager\FileMamagerController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reg\RegController.cs" />
+    <Compile Include="RouteRegistrar.cs" />
+    <Compile Include="Utility\CodeController.cs" />
+    <Compile Include="ViewModels\HistoryUserViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\User\UserLoginViewModel.cs" />
+    <Compile Include="ViewModels\User\UserRegisterViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cotide.ApplicationServices\Cotide.Tasks.csproj">
+      <Project>{56D6C9C1-F65F-4F31-BCA6-A4DC53BD6E6E}</Project>
+      <Name>Cotide.Tasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Core\Cotide.Domain.csproj">
+      <Project>{15DCFE96-8133-44F2-A834-3394E836FD67}</Project>
+      <Name>Cotide.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.Framework\Cotide.Framework.csproj">
+      <Project>{E63FCEE6-1AE3-4450-ABD1-AC62B402DFEC}</Project>
+      <Name>Cotide.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cotide.QueryServices\Cotide.QueryServices.csproj">
+      <Project>{0B39D99A-C3C7-40D2-B9DF-0BFF17875184}</Project>
+      <Name>Cotide.QueryServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

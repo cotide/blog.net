@@ -1,0 +1,26 @@
+﻿<#@ template  language="C#"    debug="true" hostspecific="True"#>
+// 导入多文件生成模板
+<#@include file="$(SolutionDir)app\T4\MultipleOutputHelper.ttinclude"#> 
+
+// 导入获取NHibernate Mapper的映射Helper
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\NHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\SharpArch.NHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\SharpArch.Domain.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\FluentNHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\Cotide.Framework\bin\Debug\Cotide.Framework.dll" #> 
+ 
+
+<#
+   var manager = Manager.Create(Host, GenerationEnvironment);  
+#>
+<# manager.StartNewFile("Employee1.generated.cs"); #>
+public class Employee { 
+
+ }
+<# manager.EndBlock(); #> 
+<# manager.StartNewFile("Employee.generated1.cs"); #>
+public class Employee { 
+
+ }
+<# manager.EndBlock(); #>
+<# manager.Process(true); #> 

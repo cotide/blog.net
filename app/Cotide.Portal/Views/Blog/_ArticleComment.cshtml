@@ -1,0 +1,232 @@
+﻿ 
+@model Cotide.Web.Controllers.Blog.ViewModel.Article.ArticleCommentReplyViewModel
+@Html.JqueryScript()
+@Html.JavaScript("cotide/cotide.core.js")
+<p style="color: #a3163c;padding-bottom:10px;">共 ( @Model.ArticleCommentViewModels.Count() ) 评论了该文章</p>
+@if (Model != null && Model.ArticleCommentViewModels.Count > 0)
+{ 
+   using (Html.BeginForm("DeleteArticleComment", "Blog", FormMethod.Post, new { @id = "DeleteMessageFrom" }))
+   {
+       @Html.AntiForgeryToken()
+       @Html.Hidden("msgId") 
+       
+   }
+    <div id="deleteMsgTip"></div> 
+    foreach (var item in Model.ArticleCommentViewModels)
+    {  
+        
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="col-xs-2 col-md-2" style="width:60px;">
+                    <img width="50" height="50" src="@item.UserArticleMessageViewModel.UserImg"
+                         class="img-polaroid">
+                </div>
+                <div class="col-xs-10 col-md-8"> 
+                    <p>
+                        <small>    <a href="javascript:void(0);"> @item.UserArticleMessageViewModel.NickName</a></small>
+                      
+                         @if (item.IsNoNodeArticleMessage)
+                        {
+                            <small> 回复 </small> 
+                            <small>
+                                <a href="javascript:void(0);"> @item.TagerUserArticleMessageViewModel.NickName</a> </small>
+                        }
+                    </p> 
+                    <p  >
+                        <h6>
+                            @item.Content
+                        </h6>
+                    </p>
+                </div>
+                <div class="col-xs-10 col-md-3" style="vertical-align:top; text-align:right;">
+                    <p>@item.CreateDate.ToString("yyyy年MM月dd日 hh:mm:ss")</p>
+                    <p> 
+                        <a replytag='true' href="javascript:void(0);"> <span class="glyphicon glyphicon-share-alt"></span> <small>回复</small> </a>
+                        &nbsp;&nbsp; 
+                           @if (item.IsCanDelete)
+                          {
+                            <a deletetag='true' key="@item.Id" href="javascript:void(0);"><span class="glyphicon glyphicon-remove-circle"></span> <small>删除</small> </a>
+                            
+                           } 
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-12">
+               
+                <!-- 回复面板 -->
+                @if (Model.IsLogin)
+                {
+                    Html.RenderAction("CommentUserReply", "Blog", new
+                    {
+
+                        articleMessageId = item.Id,
+                        articleId = Model.ArticleId
+                    });
+                }
+                else
+                {
+                    Html.RenderAction("CommentAnonymousUserReply", "Blog", new
+                    {
+                        replyId = item.Id,
+                        articleId = Model.ArticleId
+                    });
+                }
+            </div>
+        </div>
+        foreach (var node in item.ArticleReplyCommentViewModel)
+        {
+            <div class="row" style=" margin:0px  0px 0px 30px;padding:0px; ">
+                <div class="col-xs-12 col-md-12">
+                    <div class="col-xs-2 col-md-2" style="width:60px;">
+                        <img width="50" height="50" src="@node.UserArticleMessageViewModel.UserImg"
+                             class="img-polaroid">
+                    </div>
+                    <div class="col-xs-10 col-md-8">
+                        <p>
+                            <small>    <a href="javascript:void(0);"> @node.UserArticleMessageViewModel.NickName</a></small>
+
+                            @if (node.IsNoNodeArticleMessage)
+                        {
+                        <small> 回复 </small>
+                        <small>
+                            <a href="javascript:void(0);"> @node.TagerUserArticleMessageViewModel.NickName</a>
+                        </small>
+                        }
+                        </p>
+                        <p>
+                            @node.Content
+                        </p>
+                    </div>
+                    <div class="col-xs-10 col-md-3" style="vertical-align:top; text-align:right;">
+                        <p>@node.CreateDate.ToString("yyyy年MM月dd日 hh:mm:ss")</p>
+                        <p>
+                            <a replytag='true' href="javascript:void(0);"> <span class="glyphicon glyphicon-share-alt"></span> <small>回复</small> </a>
+                            &nbsp;&nbsp;
+                            @if (node.IsCanDelete)
+                          {
+                        <a deletetag='true' key="@node.Id" href="javascript:void(0);"><span class="glyphicon glyphicon-remove-circle"></span> <small>删除</small> </a>
+
+                           }
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-12">
+
+                    <!-- 回复面板 -->
+                    @if (Model.IsLogin)
+                {
+                    Html.RenderAction("CommentUserReply", "Blog", new
+                    {
+
+                        articleMessageId = item.Id,
+                        articleId = Model.ArticleId
+                    });
+                }
+                else
+                {
+                    Html.RenderAction("CommentAnonymousUserReply", "Blog", new
+                    {
+                        replyId = item.Id,
+                        articleId = Model.ArticleId
+                    });
+                }
+                </div>
+            </div>
+        }
+
+   @* <div class="row" style="margin: 5px;">
+        <div class=".col-xs-6 .col-md-4">
+            <div class="row">
+                <div class="col-xs-6">
+                    <img width="50" height="50" src="@item.UserArticleMessageViewModel.UserImg"
+                             class="img-polaroid">
+                </div>
+                <div class="col-xs-6">aaaaaaaa</div>
+            </div>  
+        </div>
+        <div class=".col-xs-12 .col-md-8">
+            <div class="row">
+                <p>
+                    <span>
+                        <a href="javascript:void(0);"><em>@item.UserArticleMessageViewModel.NickName</em></a>
+                    </span>
+                    @if (item.IsNoNodeArticleMessage)
+                    {
+                        <em>回复</em>
+                        <span>
+                            <a href="javascript:void(0);"><em>@item.TagerUserArticleMessageViewModel.NickName</em></a>
+                        </span>
+                    }
+                    <span style="float: right;">@item.CreateDate</span>
+                </p>
+                <p style="line-height: 21px;">
+                    @item.Content
+                </p>
+
+                <span style="float: right;">
+                    <a replytag='true' href="javascript:void(0);"><small>回复</small> </a>
+                </span>
+            </div>
+        </div>
+    </div>*@
+   
+    }
+}
+ 
+@*<!-- 分页/开始 -->
+@if (Model.ArticleCommentViewModels.TotalCount > 0)
+{ 
+    @Html.AjaxPager("articleCommentPanl", "pageIndex", Model.ArticleCommentViewModels.PageSize, Model.ArticleCommentViewModels.TotalCount)
+}
+<!-- 分页/结束 -->*@
+<script type="text/javascript">
+    $(function () {
+        $("a[replyTag='true']").click(function () { 
+            var $This = $(this).parent().parent().parent().parent().find("div[commentItem='true']");
+            if ($This.css("display") == "none") {
+                var replyContent = $("div[commentItem='true']");
+                replyContent.find("input[type='text']").val("");
+                replyContent.find("textarea").val("");
+                replyContent.hide();
+                $This.show();
+            } else {
+                $This.hide();
+            }
+        });
+        $("a[deletetag = 'true']").click(function() {  
+            if (confirm('确定删除该留言?')) { 
+                var id = $(this).attr('key');
+                $("#msgId").val(id); 
+                $.ajax({
+                    url: $("#DeleteMessageFrom").attr("action").urlstamp(),
+                    type: $("#DeleteMessageFrom").attr("method"),
+                    data: $("#DeleteMessageFrom").serialize(),
+                    dataType: 'json',
+                    cache: false,
+                    success: function (result) { 
+                        if (result.Success) {
+                            // 删除成功 
+                            cotide.dialog.showResultMsg("deleteMsgTip", "删除成功!", "success");
+                            setTimeout(function() {
+                            $("#articleCommentPanl").ajaxLoadData("@Url.Action("ArticleComment", "Blog", new
+                            {
+                                     @id = Model.ArticleId
+                            })");
+
+                            }, 1000);
+
+                        } else {
+
+                            // 评论失败
+                            cotide.dialog.showResultMsg("deleteMsgTip", result.Data, "error");
+                        }
+                    },
+                    error: function (ex) {
+                        alert('删除失败，请联系管理员');
+                    }
+                });
+                 
+            }
+        });
+    });
+</script>

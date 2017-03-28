@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "UpdateArticleType";
+    Layout = "~/Views/Shared/_DialogLayout.cshtml";
+}
+@using Cotide.Web.Controllers.BlogManager.ViewModel.Ad
+@model UpdateAdViewModel
+@section Head{
+    @Html.StyleSheet("validate/pagevalidator.css")
+    @Html.JavaScript("validate/pagevalidator_v2.js")
+}
+<div class="container-fluid">
+<p>
+    
+</p>
+</div>
+<div class="container-fluid">
+    @using (Html.BeginForm("UpdateAd", "BlogManager", FormMethod.Post, new { @Id = "UpdateAdFrom", @enctype = "multipart/form-data" }))
+    { 
+             <p>
+        @Html.ValidationExSummary("AdAdFrom")
+        @Html.HiddenFor(x=>x.Id)
+    </p><p>
+       <img style="width: 50px;height:50px;" src="@Model.SmallAdImg" />
+     <br/>
+          <label class="required">
+            广告图片  (940px X 450px) ：</label> 
+            <input type="file" name="AdImg" id="AdImg" /> 
+         </p>
+    <p>
+        <label class="required">
+            广告名称 ：</label>
+
+          @Html.TextBoxExFor(x=>x.AdName, new
+     {
+         @style = "width: 500px; color: Silver;",
+         @title = "广告名称",
+         @maxlength = "50",
+         @placeholder = "请输入广告名称(必填)"
+     }, new ValidateOption()
+     {
+         EmptyMsg = "您还没输入广告名称",
+         Description =
+             "文章类别格式:1-50位字符",
+         Min = 1,
+         Max = 50,
+         RangeMsg = "请确保文章类别在1-50位字符内"
+     })
+        @Html.ValidationMessageExFor(x=>x.AdName) 
+    </p>
+     <p>
+         <label class="required">
+            广告类型 ：</label>
+         @Html.DropDownListFor(x=>x.AdType, new List<SelectListItem>()
+                                      {
+                                          
+                                          new SelectListItem()
+                                              {
+                                                  Selected = true,
+                                                  Text = @"首页",
+                                                  Value = "0"
+                                              }
+                                      })
+     </p>    
+         <p>
+         <label class="required">
+            广告描述 ：</label> 
+                @Html.TextBoxExFor(x=>x.AdDesc, new
+           {
+               @style = "width: 500px; color: Silver;",
+               @title = "广告描述",
+               @maxlength = "100",
+               @placeholder = "请输入广告描述"
+           }, new ValidateOption()
+           {
+               Min = 0,
+               Max = 100,
+               RangeMsg = "请确保广告描述在0-100位字符内",
+               IsEmpty = true
+           })
+        @Html.ValidationMessageExFor(x=>x.AdDesc) 
+         
+         </p>
+          <p>
+    
+      <label class="required" for="password">
+            前端显示 ：
+        </label>
+        @Html.DropDownListFor(x=>x.IsShow, new List<SelectListItem>()
+                                                                                   {
+                                                                                       new SelectListItem()
+                                                                                           {
+                                                                                               Text = @"公开",
+                                                                                               Value = "true"
+                                                                                           },
+                                                                                       new SelectListItem()
+                                                                                           {
+                                                                                               Text = @"仅自己可见",
+                                                                                               Value = "false"
+                                                                                           }
+                                                                                   })
+    </p>
+             <p>
+    
+      <label class="required"  >
+            排序 ：
+        </label>
+    @Html.TextBoxFor(x=>x.Sort, new
+{
+    @style = "width: 150px; color: Silver;",
+    @title = "排序",
+    @placeholder = "请输入排序"
+})
+    </p>
+    <p>
+      <button type="submit" class="btn btn-primary"> 保存 </button>
+    </p>
+    }
+</div>
+<!-- 修改面板 -->

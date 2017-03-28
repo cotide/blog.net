@@ -1,0 +1,35 @@
+﻿@using Cotide.Domain.Contracts.Task
+@{
+     Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section Head{
+     
+    @Html.StyleSheet("pagerStyle.css")
+    @RenderSection("Head", false)
+   
+}
+@section Content{
+    <!-- 导航 -->
+    <div class="navbar navbar-default navbar-fixed-top" style="background-color: #a3163c;" role="navigation">
+        <div class="container">
+            @{Html.RenderAction("UserNav", "Blog");}
+        </div>
+    </div>
+    <!-- 内容 -->
+    <div class="container" >
+        <div class="row">
+            
+            <!-- 正文 --> 
+            <div class="col-xs-12 col-sm-12 col-md-9 rightMenu_Other">
+                @TempData["alter"]
+                @RenderBody()
+            </div>
+            <!-- 左导航 -->
+            <div class="col-xs-12 col-md-3 lettMenu_Other"> 
+                    @{Html.RenderAction("UserMenu", "BlogManager");} 
+                </div>
+        </div>
+    </div>
+    <!-- 底部 --> 
+     @{Html.RenderPartial("~/Views/Shared/_MainBottom.cshtml");}
+}

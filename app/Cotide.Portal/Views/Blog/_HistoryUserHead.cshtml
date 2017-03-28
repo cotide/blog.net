@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+@model Cotide.Web.Controllers.ViewModels.HistoryUserViewModel  
+<div class="row" style="text-align: center; margin-bottom: 10px;">
+    <img src="@Model.ImgHead" style="width: 200px;" class="img-thumbnail">
+</div>
+<!-- 个人信息 -->
+<div class="row">
+    <div class="list-group">
+        <a href="#" style="background-color: #A52A2A;" class="list-group-item active">中文名:@Model.RealName
+        </a>
+        @if (!string.IsNullOrEmpty(Model.EnRealName))
+        {
+            <a href="#" class="list-group-item">英文名: @Model.EnRealName</a>
+        }
+        @if (!string.IsNullOrEmpty(Model.Email))
+        {
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-envelope"></span>&nbsp;@Model.Email</a>
+        }
+    </div>
+</div>
+<!-- 标签 -->
+@{Html.RenderAction("ArticleTag", "Blog"); }
+<!-- 文章分类 -->
+@{Html.RenderAction("_ArticleType", "Blog"); }
+<!-- 档案 -->
+@{Html.RenderAction("ArticleDate", "Blog");}
+<!-- 最近文章 -->
+@{Html.RenderAction("HistoryArticle", "Blog"); }
+<!-- 最近留言 -->
+@*<div class="row">
+    <ul class="nav nav-pills nav-stacked ">
+        <li class="active">
+            <a href="#">
+                <span class="badge pull-right"><span class="glyphicon glyphicon-pencil"></span></span>
+                留言
+            </a>
+        </li>
+        <li><a href="/xcli/Blog/ArticleType/13" title="程序测试">好好的网站啊！！！ 好好的网站啊！！！好好的网站啊！！！好好的网站啊！！！ </a></li>
+        <li><a href="/xcli/Blog/ArticleType/13" title="程序测试">好好的网站啊！！！  </a></li>
+        <li><a href="/xcli/Blog/ArticleType/13" title="程序测试">程序测好好的网站啊！！！好好的网站啊！！！好好的网站啊！！！试  </a></li>
+        <li><a href="/xcli/Blog/ArticleType/13" title="程序测试">程序测试  </a></li>
+        <li><a href="/xcli/Blog/ArticleType/13" title="程序测试">好好的网站啊！！！好好的网站啊！！！  </a></li>
+        <li><a href="/xcli/Blog/ArticleType/13" title="程序测试">程序测好好的网站啊！！！好好的网站啊！！！试  </a></li>
+    </ul>
+</div>*@

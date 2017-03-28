@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="创建文章留言命令">
+    <Position X="2.927" Y="4.417" Height="0.292" Width="1.21" />
+  </Comment>
+  <Comment CommentText="创建留言基类">
+    <Position X="5.771" Y="0.771" Height="0.29" Width="1.2" />
+  </Comment>
+  <Comment CommentText="创建留言回复">
+    <Position X="8.271" Y="4.667" Height="0.292" Width="1.21" />
+  </Comment>
+  <Class Name="Cotide.Tasks.Commands.ArticleCommands.CreateArticleMessageCommand">
+    <Position X="2.25" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ArticleCommands\CreateArticleMessageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cotide.Tasks.Commands.ArticleCommands.Base.BaseCreateArticleMessageCommand">
+    <Position X="4.5" Y="1.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAAAAAAABAAAAgAAAAAAAGAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ArticleCommands\Base\BaseCreateArticleMessageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cotide.Tasks.Commands.ArticleCommands.CreateArticleMessageReplyCommand">
+    <Position X="7" Y="5.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Commands\ArticleCommands\CreateArticleMessageReplyCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

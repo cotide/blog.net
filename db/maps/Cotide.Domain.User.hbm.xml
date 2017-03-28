@@ -1,0 +1,106 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class xmlns="urn:nhibernate-mapping-2.2" name="Cotide.Domain.User, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" table="Blog_Users">
+    <id name="Id" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" unsaved-value="0">
+      <column name="UserId" />
+      <generator class="hilo">
+        <param name="where">table_name = 'Blog_Users'</param>
+        <param name="table">Blog_hibernate_unique_key</param>
+        <param name="column">next_hi</param>
+        <param name="max_lo">0</param>
+      </generator>
+    </id>
+    <bag name="UserTourLogs">
+      <key>
+        <column name="UserId" />
+      </key>
+      <one-to-many class="Cotide.Domain.UserTourLog, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </bag>
+    <bag name="Articles">
+      <key>
+        <column name="UserId" />
+      </key>
+      <one-to-many class="Cotide.Domain.Article, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    </bag>
+    <property name="UserName" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="UserName" />
+    </property>
+    <property name="UserNo" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="UserNo" />
+    </property>
+    <property name="UserRole" type="FluentNHibernate.Mapping.GenericEnumMapper`1[[Cotide.Domain.Enum.UserRole, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], FluentNHibernate, Version=1.3.0.717, Culture=neutral, PublicKeyToken=8aa435e3cb308880">
+      <column name="UserRole" />
+    </property>
+    <property name="Paw" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Paw" />
+    </property>
+    <property name="ImgHead" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="ImgHead" />
+    </property>
+    <property name="SmallImgHead" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="SmallImgHead" />
+    </property>
+    <property name="StandardImgHead" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="StandardImgHead" />
+    </property>
+    <property name="Domain" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Domain" />
+    </property>
+    <property name="Email" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Email" />
+    </property>
+    <property name="Card" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Card" />
+    </property>
+    <property name="UserSex" type="FluentNHibernate.Mapping.GenericEnumMapper`1[[Cotide.Domain.Enum.UserSex, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], FluentNHibernate, Version=1.3.0.717, Culture=neutral, PublicKeyToken=8aa435e3cb308880">
+      <column name="UserSex" />
+    </property>
+    <property name="UserState" type="FluentNHibernate.Mapping.GenericEnumMapper`1[[Cotide.Domain.Enum.UserState, Cotide.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], FluentNHibernate, Version=1.3.0.717, Culture=neutral, PublicKeyToken=8aa435e3cb308880">
+      <column name="UserState" />
+    </property>
+    <property name="Phone" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="Phone" />
+    </property>
+    <property name="DesPassword" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="DesPassword" />
+    </property>
+    <property name="RealName" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="RealName" />
+    </property>
+    <property name="EnRealName" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="EnRealName" />
+    </property>
+    <property name="EmailValidate" type="System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="EmailValidate" />
+    </property>
+    <property name="QQ" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="QQ" />
+    </property>
+    <property name="WeiBoUrl" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="WeiBoUrl" />
+    </property>
+    <property name="BlogName" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="BlogName" />
+    </property>
+    <property name="BlogDesc" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="BlogDesc" />
+    </property>
+    <property name="LoginDate" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LoginDate" />
+    </property>
+    <property name="LastLoginDate" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LastLoginDate" />
+    </property>
+    <property name="LoginIp" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LoginIp" />
+    </property>
+    <property name="LastLoginIp" type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LastLoginIp" />
+    </property>
+    <property name="CreateDate" type="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="CreateDate" />
+    </property>
+    <property name="LastDateTime" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <column name="LastDateTime" />
+    </property>
+  </class>
+</hibernate-mapping>

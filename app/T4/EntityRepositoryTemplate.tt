@@ -1,0 +1,69 @@
+﻿<#@ template  language="C#"    debug="true" hostspecific="True"#> 
+//  导入MultipleOutputHelper.ttinclude文件
+<#@include file="$(SolutionDir)app\T4\MultipleOutputHelper.ttinclude"#> 
+// 导入相关的DLL
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\NHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\SharpArch.NHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\SharpArch.Domain.dll" #>
+<#@ Assembly Name="$(SolutionDir)lib\SharpArch.2.0.2\FluentNHibernate.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\Cotide.Data\bin\$(ConfigurationName)\Cotide.Infrastructure.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\Cotide.Core\bin\$(ConfigurationName)\Cotide.Domain.dll" #>
+<#@ Assembly Name="$(SolutionDir)app\Cotide.Framework\bin\$(ConfigurationName)\Cotide.Framework.dll" #>
+<#@ import namespace="System.IO"#>
+<#@ import namespace="System"#>
+<#@ import namespace="System.Configuration"#>   
+ <#  
+    // 初始化
+    SharpArch.NHibernate.NHibernateSession.CloseAllSessions();
+    SharpArch.NHibernate.NHibernateSession.Reset();
+    string projectPath = @"C:\资料\Person\项目\Codeplex\电子商务\app\";
+    string nhibernatePath = projectPath + @"Cotide.Web\NHibernate.config";
+    string[] mappingAssemblies = new[] { @"C:\资料\Person\项目\Codeplex\电子商务\app\Cotide.Data\bin\Release\Cotide.Infrastructure.dll" };
+    // 加载配置
+    NHibernate.Cfg.Configuration configuration = SharpArch.NHibernate.NHibernateSession.Init(
+	new SharpArch.NHibernate.SimpleSessionStorage(), mappingAssemblies,
+	new Cotide.Infrastructure.NHibernateMaps.AutoPersistenceModelGenerator().Generate(),
+	nhibernatePath);
+    // 获取所有类映射
+    var allClassMetadata = SharpArch.NHibernate.NHibernateSession.GetDefaultSessionFactory().GetAllClassMetadata();
+	var manager = Manager.Create(Host, GenerationEnvironment);  
+    foreach (var entry in allClassMetadata)
+    {
+	   var entityName = entry.Value.EntityName.Split('.'); 
+	   var className = entityName[entityName.Length - 1];
+	    // 定义输出文件
+		manager.StartNewFile("I"+className+"Repository.cs");
+	   #>//-------------------------------------------------------------------
+//版权所有：版权所有(C) 2012，Microsoft(China) Co.,LTD
+//系统名称： 
+//文件名称：IActivityRepository.cs
+//模块名称：
+//模块编号：
+//作　　者：xcli
+//创建时间：2013/4/6 12:49:50 
+//功能说明：
+//-----------------------------------------------------------------
+//修改记录： 
+//修改人：   
+//修改时间： 
+//修改内容： 
+//-----------------------------------------------------------------  
+using System;
+using System.Collections.Generic;
+using System.Linq; 
+using System.Text;
+using Cotide.Domain.Contracts.Repositories.Extension; 
+namespace Cotide.Domain.Contracts.Repositories 
+{ 
+	    public interface I<#=className#>Repository : IDbProxyRepository<<#=className#>>
+		{
+
+		} 
+}
+   <# 
+       // 结束输出文件
+       manager.EndBlock();
+	} 
+	   // 执行编译
+       manager.Process(true); 
+   #> 
