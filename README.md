@@ -2,9 +2,9 @@
 >  2011年初用的领域驱动设计驱动的设计的BLOG网站  
 
 ## 使用技术
-设计思路：领域驱动设计
-数据库存储：Nhibernate(ORM) + SQL Server
-前台处理：MVC4 + jQuery
+* 设计思路：领域驱动设计
+* 数据库存储：Nhibernate(ORM) + SQL Server
+* 前台处理：MVC4 + jQuery
 
 ## 实体模型
 ![实体模型](http://ww1.sinaimg.cn/large/7c2c6ab7gy1fe2om4yc96j20j70l2t9n.jpg)
