@@ -2,4 +2,5 @@
 Debug/  
 Release/  
 obj/
-bin/  
+bin/   
+\.DS_Store
