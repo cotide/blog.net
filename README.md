@@ -1,10 +1,10 @@
-# Cotide.Blog
->  2011年初用的领域驱动设计驱动的设计的BLOG网站  
+# cotide.blog
+>  2011年初用的DDD(领域驱动设计)的BLOG网站  
 
-## 使用技术
-* 设计思路：领域驱动设计
-* 数据库存储：Nhibernate(ORM) + SQL Server
-* 前台处理：MVC4 + jQuery
+## 特点
+* SQL Server 数据库
+* Nhibernate + Fluent Nhibernate (ORM)  
+* MVC4 + jQuery(前端)
 
 ## 实体模型  
 
